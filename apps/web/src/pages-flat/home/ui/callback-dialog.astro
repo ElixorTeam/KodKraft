@@ -1,0 +1,24 @@
+---
+import { Dialog, DialogContent, DialogTitle } from "@/shared/ui/dialog"
+import AbstractBackground from "@/shared/assets/abstract-bg.webp"
+import CallbackForm from "./callback-form.svelte"
+import { Image } from "astro:assets"
+---
+
+<Dialog id="callback-dialog">
+  <DialogContent class="w-full max-w-3xl p-0 text-foreground md:min-h-120">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="hidden size-full md:block">
+        <Image
+          src={AbstractBackground}
+          alt="Abstract Background"
+          class="size-full rounded-l-sm object-cover"
+        />
+      </div>
+      <div class="p-5">
+        <DialogTitle class="font-medium">Обратная связь</DialogTitle>
+        <CallbackForm client:load />
+      </div>
+    </div>
+  </DialogContent>
+</Dialog>

@@ -1,0 +1,78 @@
+---
+import Header from "./header.astro"
+import PixelHeartIcon from "@/shared/assets/pixel-heart.svg"
+import PixelHumanIcon from "@/shared/assets/pixel-human.svg"
+import PixelCalendarIcon from "@/shared/assets/pixel-calendar.svg"
+import PixelStarIcon from "@/shared/assets/pixel-star.svg"
+import CoinAnimation from "@/shared/assets/coin-animation.gif"
+import PixelChevronIcon from "@/shared/assets/pixel-chevron.svg"
+import MarioBackground from "@/shared/assets/mario-bg.png"
+import { Button } from "@/shared/ui/button"
+import { DialogTrigger } from "@/shared/ui/dialog"
+import StatItem from "./stat-item.astro"
+import { Image } from "astro:assets"
+import Footer from "./footer.astro"
+import CallbackDialog from "./callback-dialog.astro"
+---
+
+<CallbackDialog />
+<main class="container mx-auto min-h-screen w-full sm:border-x">
+  <Header />
+  <section class="grid w-full grid-cols-1 border-b lg:h-96 lg:grid-cols-2">
+    <div class="items-center space-y-2 self-center px-4 py-8 lg:px-12 lg:py-0">
+      <h2 class="text-3xl font-medium">Научим программировать</h2>
+      <p>
+        Мы вынуждены отталкиваться от того, что сплочённость команды
+        профессионалов в значительной степени обусловливает важность направлений
+        прогрессивного развития.
+      </p>
+      <DialogTrigger for="callback-dialog" asChild>
+        <Button size="sm" class="mt-4"
+          >Начать обучение
+          <PixelChevronIcon />
+        </Button>
+      </DialogTrigger>
+    </div>
+    <div class="hidden size-full overflow-hidden lg:block">
+      <Image
+        src={CoinAnimation}
+        alt="Coin Animation"
+        loading="eager"
+        class="mx-auto size-full object-contain contrast-25 dark:contrast-100"
+      />
+    </div>
+  </section>
+
+  <section class="grid grid-cols-1 border-b md:grid-cols-2 xl:grid-cols-4">
+    <StatItem Icon={PixelCalendarIcon} value={7} label="Лет опыта" />
+    <StatItem Icon={PixelHumanIcon} value="150+" label="Учеников" />
+    <StatItem Icon={PixelStarIcon} value="12" label="Готовых курсов" />
+    <StatItem Icon={PixelHeartIcon} value="50+" label="Хороших отзывов" />
+  </section>
+
+  <section class="grid w-full grid-cols-1 py-12 lg:grid-cols-2">
+    <div class="flex items-center px-4 lg:px-12">
+      <div class="flex flex-col">
+        <span class="text-sm text-primary">// О НАС</span>
+        <span class="text-2xl font-medium">Что мы делаем?</span>
+      </div>
+    </div>
+    <div class="flex size-full px-4 lg:px-12">
+      <p class="self-center text-muted-foreground">
+        Современные технологии достигли такого уровня, что граница обучения
+        кадров требует от нас анализа соответствующих условий активизации.
+        Равным образом, базовый вектор развития является качественно новой
+        ступенью глубокомысленных рассуждений.
+      </p>
+    </div>
+  </section>
+
+  <Image
+    src={MarioBackground}
+    alt="Mario Background"
+    class="-mt-32 w-full border-b invert-100 dark:invert-0"
+    loading="eager"
+  />
+
+  <Footer />
+</main>

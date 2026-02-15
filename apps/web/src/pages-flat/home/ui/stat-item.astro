@@ -1,0 +1,23 @@
+---
+import { cn } from "@/shared/utils/cn"
+import type { HTMLAttributes, SvgComponent } from "astro/types"
+
+type Props = HTMLAttributes<"button"> & {
+  Icon: SvgComponent
+  value: string | number
+  label: string
+}
+
+const { Icon, value, label, class: className, ...rest } = Astro.props
+---
+
+<div
+  class={cn("flex items-center gap-4 justify-center py-6", className)}
+  {...rest}
+>
+  <Icon class="size-14 text-foreground" />
+  <div class="flex flex-col">
+    <span class="text-2xl font-bold">{value}</span>
+    <span class="text-sm text-muted-foreground">{label}</span>
+  </div>
+</div>

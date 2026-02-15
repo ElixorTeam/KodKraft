@@ -1,0 +1,22 @@
+---
+import KodKraftLogo from "@/shared/assets/full-logo.svg"
+import PixelChevronIcon from "@/shared/assets/pixel-chevron.svg"
+import { Button } from "@/shared/ui/button"
+
+const phone = import.meta.env.PUBLIC_PHONE
+---
+
+<header
+  class="flex h-11 w-full items-center justify-between border-b px-4 lg:px-12"
+>
+  <KodKraftLogo class="h-7" />
+
+  <div class="inline-flex items-center gap-2">
+    <Button size="sm" variant="link" href={`tel:${phone}`}>{phone}</Button>
+
+    <Button size="sm" class="h-6.5 gap-1"
+      >Записаться
+      <PixelChevronIcon />
+    </Button>
+  </div>
+</header>
