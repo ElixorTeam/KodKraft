@@ -1,0 +1,48 @@
+---
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrev
+} from "@/shared/ui/carousel";
+import { Image } from "astro:assets";
+import PixelChevronIcon from "@/shared/assets/icons/pixel-chevron.svg";
+import { teachers } from "../config/teachers";
+---
+
+<Carousel opts={{ align: "center", loop: true }} class="w-full">
+  <CarouselContent>
+    {
+      teachers.map((item) => (
+        <CarouselItem class="basis-52 sm:basis-56 md:basis-60 lg:basis-64 2xl:basis-72">
+          <div class="relative flex flex-col gap-2">
+            <div class="aspect-3/4 overflow-hidden rounded-sm">
+              <Image
+                src={item.imageSrc}
+                alt={item.name}
+                class="size-full object-cover"
+              />
+            </div>
+
+            <div class="pointer-events-none absolute inset-0 rounded-b-sm bg-linear-to-t from-black/70 via-black/0 to-transparent" />
+
+            <div class="absolute bottom-0 flex flex-col px-2 py-1.5 text-primary-foreground">
+              <span class="font-semibold">{item.name}</span>
+              <span class="text-sm">{item.position}</span>
+            </div>
+          </div>
+        </CarouselItem>
+      ))
+    }
+  </CarouselContent>
+
+  <div class="mt-10 hidden gap-3 sm:flex">
+    <CarouselPrev class="static size-10">
+      <PixelChevronIcon class="size-4 rotate-180" slot="icon" />
+    </CarouselPrev>
+    <CarouselNext class="static size-10">
+      <PixelChevronIcon class="size-4" slot="icon" />
+    </CarouselNext>
+  </div>
+</Carousel>

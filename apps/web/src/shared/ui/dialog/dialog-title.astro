@@ -1,16 +1,16 @@
 ---
-import { cn } from "@/shared/utils/cn"
-import type { HTMLAttributes } from "astro/types"
+import { cn } from "@/shared/utils/cn";
+import type { HTMLAttributes } from "astro/types";
 
 type Props = Omit<HTMLAttributes<"h2">, "id"> & {
   /**
    * The content to be rendered inside the dialog title
    */
 
-  children: any
-}
+  children: any;
+};
 
-const { class: className, ...rest } = Astro.props
+const { class: className, ...rest } = Astro.props;
 ---
 
 <h2

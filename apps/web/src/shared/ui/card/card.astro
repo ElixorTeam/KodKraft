@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/shared/utils/cn";
+
+type Props = HTMLAttributes<"div"> & VariantProps<typeof cardVariants>;
+
+export const cardVariants = cva(
+  "bg-card text-card-foreground group/card ring-border flex flex-col rounded-xl ring-1 has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
+  {
+    variants: {
+      size: {
+        default: "gap-6 py-6",
+        sm: "gap-4 py-4 text-sm"
+      }
+    },
+    defaultVariants: {
+      size: "default"
+    }
+  }
+);
+
+const { class: className, size, ...rest } = Astro.props;
+---
+
+<div
+  class={cn(cardVariants({ size }), className)}
+  data-size={size ?? "default"}
+  {...rest}
+  data-slot="card"
+>
+  <slot />
+</div>

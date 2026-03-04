@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "@/shared/utils/cn";
+
+type Props = HTMLAttributes<"div">;
+
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div
+  role="group"
+  aria-roledescription="slide"
+  class={cn(
+    "min-w-0 shrink-0 grow-0 basis-full group-data-[axis=x]/carousel:pl-4 group-data-[axis=y]/carousel:pt-4",
+    className
+  )}
+  {...rest}
+  data-slot="carousel-item"
+>
+  <slot />
+</div>

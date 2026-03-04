@@ -1,0 +1,54 @@
+---
+import SocialTelegramIcon from "@/shared/assets/socials/telegram.svg";
+import SocialVKIcon from "@/shared/assets/socials/vk.svg";
+import SocialWhatsAppIcon from "@/shared/assets/socials/whatsapp.svg";
+import MailIcon from "@lucide/astro/icons/mail";
+import PixelChevronIcon from "@/shared/assets/icons/pixel-chevron.svg";
+import Button from "@/shared/ui/button";
+
+const socials = [
+  { icon: SocialTelegramIcon, name: "Telegram", href: "https://t.me/kodkraft" },
+  { icon: SocialVKIcon, name: "VK", href: "https://vk.com/kodkraft" },
+  {
+    icon: SocialWhatsAppIcon,
+    name: "WhatsApp",
+    href: "https://wa.me/+79260000000"
+  },
+  { icon: MailIcon, name: "Email", href: "mailto:info@kodkraft.com" }
+];
+---
+
+<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+  <ul class="w-full space-y-2.5 self-center">
+    {
+      socials.map((item) => (
+        <li>
+          <Button
+            href={item.href}
+            variant="outline"
+            size="lg"
+            class="h-14 w-full justify-between px-4"
+          >
+            <div class="flex items-center gap-2">
+              <item.icon class="size-8" />
+              {item.name}
+            </div>
+            <div class="pointer-events-none inline-flex size-8 items-center justify-center rounded-sm bg-foreground">
+              <PixelChevronIcon class="h-4 w-4 text-primary-foreground" />
+            </div>
+          </Button>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="mx-auto w-full max-w-2xl overflow-hidden">
+    <iframe
+      src="https://yandex.ru/map-widget/v1/?um=constructor%3A5cb6043765cd1dd343e354dd7aada48b403c0d7156ff04bf170f36d5c42fede2&source=constructor"
+      width="672"
+      height="336"
+      class="mx-auto w-[stretch] rounded-md border"
+    >
+    </iframe>
+  </div>
+</div>

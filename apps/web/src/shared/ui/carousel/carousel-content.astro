@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "@/shared/utils/cn";
+
+type Props = HTMLAttributes<"div">;
+
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div class="overflow-hidden" {...rest} data-slot="carousel-content">
+  <div
+    class={cn(
+      "flex group-data-[axis=y]/carousel:flex-col group-data-[axis=x]/carousel:-ml-4 group-data-[axis=y]/carousel:-mt-4",
+      className
+    )}
+    data-slot="carousel-container"
+  >
+    <slot />
+  </div>
+</div>

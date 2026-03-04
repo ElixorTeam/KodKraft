@@ -1,0 +1,39 @@
+---
+import {
+  Card,
+  CardTitle,
+  CardDescription,
+  CardHeader,
+  CardContent
+} from "@/shared/ui/card";
+import { Marquee } from "@selemondev/svelte-marquee";
+import { reviews } from "../config/reviews";
+import { Rating } from "@/shared/ui/rating";
+---
+
+<Marquee fade reverse pauseOnHover innerClassName="py-1">
+  {
+    reviews.slice(0, 8).map((item) => (
+      <Card
+        class="max-w-sm min-w-96 gap-2 border-none dark:bg-input/30"
+        size="sm"
+      >
+        <CardHeader class="w-full overflow-hidden">
+          <div class="flex w-full items-center gap-2 overflow-hidden">
+            <div class="flex min-w-0 flex-1 items-center gap-2">
+              <div class="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary text-white">
+                {item.name.at(0)}
+              </div>
+              <div class="flex flex-col overflow-hidden">
+                <CardTitle class="truncate">{item.name}</CardTitle>
+                <CardDescription>{item.date}</CardDescription>
+              </div>
+            </div>
+            <Rating value={item.rating} />
+          </div>
+        </CardHeader>
+        <CardContent class="px-6 text-sm">{item.description}</CardContent>
+      </Card>
+    ))
+  }
+</Marquee>

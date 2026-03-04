@@ -1,0 +1,34 @@
+---
+import ChevronRightIcon from "@lucide/astro/icons/chevron-right";
+import type { ComponentProps } from "astro/types";
+import { cn } from "@/shared/utils/cn";
+import { Button } from "../button";
+
+type Props = ComponentProps<typeof Button>;
+
+const {
+  class: className = "",
+  variant = "outline",
+  size = "icon",
+  ...rest
+} = Astro.props;
+---
+
+<Button
+  variant={variant}
+  size={size}
+  class={cn(
+    "starwind-carousel-next absolute size-8 rounded-full group-data-[axis=x]/carousel:top-1/2 group-data-[axis=x]/carousel:-right-12 group-data-[axis=x]/carousel:-translate-y-1/2 group-data-[axis=y]/carousel:-bottom-12 group-data-[axis=y]/carousel:left-1/2 group-data-[axis=y]/carousel:-translate-x-1/2 group-data-[axis=y]/carousel:rotate-90",
+    className
+  )}
+  aria-label="Next slide"
+  {...rest}
+  data-slot="carousel-next"
+>
+  <slot name="icon">
+    <ChevronRightIcon />
+  </slot>
+  <slot>
+    <span class="sr-only">Next slide</span>
+  </slot>
+</Button>

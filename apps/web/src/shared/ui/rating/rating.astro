@@ -1,0 +1,40 @@
+---
+import StarIcon from "@lucide/astro/icons/star";
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "@/shared/utils/cn";
+
+type Props = {
+  value: number;
+  max?: number;
+} & HTMLAttributes<"div">;
+
+const { class: className, value, max = 5 } = Astro.props;
+
+const stars = Array.from({ length: max }, (_, i) => i + 1);
+---
+
+<div class={cn("flex gap-1", className)}>
+  {
+    stars.map((n) => (
+      <div class="relative size-4">
+        {/* Пустая звезда */}
+        <StarIcon class="absolute inset-0 size-4 fill-secondary stroke-none" />
+
+        {/* Полностью заполненная */}
+        {n <= Math.floor(value) && (
+          <StarIcon class="absolute inset-0 size-4 fill-primary stroke-none" />
+        )}
+
+        {/* Частично заполненная */}
+        {n === Math.ceil(value) && n > Math.floor(value) && (
+          <div
+            class="absolute inset-0 overflow-hidden"
+            style={`width: ${(value % 1) * 100}%`}
+          >
+            <StarIcon class="size-4 fill-primary stroke-none" />
+          </div>
+        )}
+      </div>
+    ))
+  }
+</div>

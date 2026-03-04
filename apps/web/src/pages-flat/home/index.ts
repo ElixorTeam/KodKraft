@@ -1,1 +1,1 @@
-export { default as HomePage } from "./ui/page.astro"
+export { default as HomePage } from "./ui/page.astro";
