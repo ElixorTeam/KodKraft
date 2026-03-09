@@ -1,18 +1,5 @@
-import Field from "./field.svelte";
-import Content from "./field-content.svelte";
-import Label from "./field-label.svelte";
-import Description from "./field-description.svelte";
-import Error from "./field-error.svelte";
-
-export {
-  Field,
-  Content,
-  Label,
-  Description,
-  Error,
-  //
-  Content as FieldContent,
-  Label as FieldLabel,
-  Description as FieldDescription,
-  Error as FieldError
-};
+export { default as Field } from "./field.svelte";
+export { default as FieldContent } from "./field-content.svelte";
+export { default as FieldLabel } from "./field-label.svelte";
+export { default as FieldDescription } from "./field-description.svelte";
+export { default as FieldError } from "./field-error.svelte";

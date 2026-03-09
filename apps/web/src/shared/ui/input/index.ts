@@ -1,4 +1,2 @@
-import Input from "./input.svelte";
-import MaskedInput from "./masked-input.svelte";
-
-export { Input, MaskedInput };
+export { default as Input } from "./input.svelte";
+export { default as MaskedInput } from "./masked-input.svelte";

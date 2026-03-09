@@ -1,0 +1,69 @@
+---
+import { cn } from "@/shared/utils/cn";
+import type { FancyboxOptions } from "@fancyapps/ui";
+
+const {
+  options = {},
+  class: className = "",
+  ...rest
+} = Astro.props as {
+  options?: Partial<FancyboxOptions>;
+  class?: string;
+};
+---
+
+<div
+  data-options={JSON.stringify(options)}
+  class={cn("starwind-lightbox", className)}
+  {...rest}
+>
+  <slot />
+</div>
+
+<script>
+  import { Fancybox, type FancyboxOptions } from "@fancyapps/ui/dist/fancybox/";
+
+  /**
+   * Handles the functionality of a lightbox component.
+   */
+  class LightboxHandler {
+    private container: HTMLElement;
+    private options: FancyboxOptions;
+    private lightboxId: string;
+
+    /**
+     * Creates a new AccordionHandler instance
+     * @param lightbox - The root accordion element
+     * @param idx - Unique index for this accordion instance
+     */
+    constructor(lightbox: HTMLElement, idx: number) {
+      this.container = lightbox;
+      this.lightboxId = `starwind-lightbox-${idx}`;
+      this.options = JSON.parse(lightbox.dataset.options ?? "");
+
+      lightbox.id = this.lightboxId;
+      Fancybox.bind(this.container, "[data-fancybox]", this.options);
+    }
+  }
+
+  // Store instances in a WeakMap to avoid memory leaks
+  const lightboxInstances = new WeakMap<HTMLElement, LightboxHandler>();
+  let lightboxCounter = 0;
+
+  const setupLightboxes = () => {
+    document
+      .querySelectorAll<HTMLElement>(".starwind-lightbox")
+      .forEach((lightbox) => {
+        if (!lightboxInstances.has(lightbox)) {
+          lightboxInstances.set(
+            lightbox,
+            new LightboxHandler(lightbox, lightboxCounter++)
+          );
+        }
+      });
+  };
+
+  setupLightboxes();
+  document.addEventListener("astro:after-swap", setupLightboxes);
+  document.addEventListener("starwind:init", setupLightboxes);
+</script>

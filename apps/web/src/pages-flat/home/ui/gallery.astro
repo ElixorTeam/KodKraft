@@ -1,11 +1,11 @@
 ---
-import Fancybox from "@/shared/ui/fancybox/fancybox.svelte";
+import { Lightbox } from "@/shared/ui/lightbox";
 import { gallery } from "../config/gallery";
 import { cn } from "@/shared/utils/cn";
 import { Image } from "astro:assets";
 ---
 
-<Fancybox client:only="svelte" class="grid gap-6 md:grid-cols-2">
+<Lightbox class="grid gap-6 md:grid-cols-2">
   {
     gallery.slice(0, 8).map((item) => (
       <div
@@ -26,4 +26,4 @@ import { Image } from "astro:assets";
       </div>
     ))
   }
-</Fancybox>
+</Lightbox>

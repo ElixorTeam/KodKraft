@@ -6,7 +6,9 @@ const contacts = {
   whatsapp: "https://wa.me/+79209004445",
   email: "info@kodkraft.com",
   phone: parsePhoneNumber("+79209004445", "RU"),
-  yandexMap: "https://yandex.com/maps/-/CPukiIOS"
+  yandexMap: "https://yandex.com/maps/-/CPukiIOS",
+  avito: "",
+  max: ""
 };
 
 export { contacts };
