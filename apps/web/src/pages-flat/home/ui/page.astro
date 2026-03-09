@@ -20,6 +20,8 @@ import {
   SectionTitle
 } from "./section";
 import Reviews from "./reviews.astro";
+import Mario from "@/shared/assets/mario.webp";
+import Ghost from "@/shared/assets/ghost.webp";
 ---
 
 <CallbackDialog />
@@ -40,7 +42,7 @@ import Reviews from "./reviews.astro";
 
   <section class="my-20 md:my-32">
     <div
-      class="mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-4 px-4 text-center sm:px-6 md:gap-8 lg:px-8"
+      class="relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-4 px-4 text-center sm:px-6 md:gap-8 lg:px-8"
     >
       <div class="space-y-4">
         <Badge variant="outline" class="bg-background">
@@ -63,6 +65,18 @@ import Reviews from "./reviews.astro";
           <PixelChevronIcon />
         </Button>
       </DialogTrigger>
+
+      <Image
+        src={Mario}
+        alt=""
+        class="absolute -bottom-24 left-8 hidden h-64 w-32 -rotate-10 object-contain lg:block"
+      />
+
+      <Image
+        src={Ghost}
+        alt=""
+        class="absolute -top-24 right-4 hidden h-56 w-28 -scale-x-100 -rotate-10 object-contain lg:block"
+      />
     </div>
   </section>
 
@@ -71,7 +85,10 @@ import Reviews from "./reviews.astro";
   <Section>
     <SectionHeader>
       <div class="space-y-2">
-        <Badge variant="outline">Курсы</Badge>
+        <Badge variant="outline">
+          <div class="mr-1 size-1.5 rounded-full bg-primary"></div>
+          Курсы
+        </Badge>
         <SectionTitle>Программы обучения</SectionTitle>
       </div>
 
@@ -162,8 +179,10 @@ import Reviews from "./reviews.astro";
 
   <Section>
     <SectionHeader variant="center">
-      <Badge variant="outline">Контакты</Badge>
-      <SectionTitle>Связаться с нами</SectionTitle>
+      <div class="space-y-2">
+        <Badge variant="outline">Контакты</Badge>
+        <SectionTitle>Связаться с нами</SectionTitle>
+      </div>
     </SectionHeader>
 
     <SectionContent>

@@ -1,6 +1,13 @@
 ---
 import "@fontsource/wix-madefor-display";
 import "./styles.css";
+
+const title = "КодКрафт – Школа программирования";
+const description =
+  "Курсы по Python, C#, Scratch, web-разработке и гейм-разработке для детей и взрослых.";
+const keywords =
+  "кодкрафт, школа программирования, курсы программирования, Python, JavaScript, дети, web-разработка, робототехника";
+// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="en">
@@ -8,7 +15,24 @@ import "./styles.css";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>КодКрафт - Школа программирования</title>
+    <meta name="generator" content={Astro.generator} />
+    <!-- <link rel="canonical" href={canonicalURL} /> -->
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <!-- <meta property="og:url" content={canonicalURL} /> -->
+    <meta property="og:image" content="https://kodkraft.com/og-image.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://kodkraft.com/og-image.jpg" />
 
     <script is:inline>
       const initTheme = () => {
