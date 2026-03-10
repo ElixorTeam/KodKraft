@@ -1,5 +1,6 @@
 ---
 import "@fontsource/wix-madefor-display";
+import { YandexMetrika } from "astro-ym";
 import "./styles.css";
 
 const title = "КодКрафт – Школа программирования";
@@ -36,6 +37,18 @@ const keywords =
 
     <!-- Яндекс.Вебмастер -->
     <meta name="yandex-verification" content="ef5c375d86ba34a4" />
+
+    <!-- Яндекс.Метрика -->
+    {
+      import.meta.env.PROD && (
+        <YandexMetrika
+          counterId={107232679}
+          ecommerce="dataLayer"
+          webvisor
+          lazy
+        />
+      )
+    }
 
     <!-- <script is:inline>
       const initTheme = () => {
