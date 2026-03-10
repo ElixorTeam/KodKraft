@@ -2,38 +2,36 @@
 import "@fontsource/wix-madefor-display";
 import { YandexMetrika } from "astro-ym";
 import "./styles.css";
+import { Seo } from "astro-seo-meta";
 
 const title = "КодКрафт – Школа программирования";
 const description =
   "Курсы по Python, C#, Scratch, web-разработке и гейм-разработке для детей и взрослых.";
-const keywords =
-  "кодкрафт, школа программирования, курсы программирования, Python, JavaScript, дети, web-разработка, робототехника";
-// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const keywords = [
+  "кодкрафт",
+  "школа программирования",
+  "курсы программирования",
+  "Python",
+  "JavaScript",
+  "дети",
+  "web-разработка",
+  "робототехника"
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <!-- <link rel="canonical" href={canonicalURL} /> -->
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <!-- <meta property="og:url" content={canonicalURL} /> -->
-    <meta property="og:image" content="https://kodkraft.com/og-image.jpg" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://kodkraft.com/og-image.jpg" />
+    <Seo
+      title={title}
+      description={description}
+      keywords={keywords}
+      icon="/favicon.svg"
+      robots="index, follow"
+    />
 
     <!-- Яндекс.Вебмастер -->
     <meta name="yandex-verification" content="ef5c375d86ba34a4" />
