@@ -5,25 +5,25 @@ import { cn } from "@/shared/utils/cn";
 import { Image } from "astro:assets";
 ---
 
-<Lightbox class="grid gap-6 md:grid-cols-2">
+<Lightbox
+  class="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 [&>*:nth-child(n+6)]:hidden"
+>
   {
-    gallery.slice(0, 8).map((item) => (
-      <div
-        class={cn({
-          "grid grid-cols-2 gap-6": item.type === "grid"
-        })}
+    gallery.map((image, index) => (
+      <a
+        data-fancybox="gallery"
+        href={image.src}
+        class={cn("aspect-square", index % 5 === 0 && "col-span-2 row-span-2")}
       >
-        {item.images.map((image) => (
-          <a data-fancybox="gallery" href={image.src.src}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              class="h-full w-full rounded-lg object-cover"
-              loading="lazy"
-            />
-          </a>
-        ))}
-      </div>
+        <Image
+          src={image}
+          alt="Фото с уроков"
+          class="h-full w-full rounded-lg object-cover"
+          loading="lazy"
+          width={index % 5 === 0 ? 800 : 400}
+          height={index % 5 === 0 ? 800 : 400}
+        />
+      </a>
     ))
   }
 </Lightbox>

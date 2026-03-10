@@ -10,64 +10,16 @@ import GalleryImage9 from "@/shared/assets/gallery/gallery-9.webp";
 import GalleryImage10 from "@/shared/assets/gallery/gallery-10.webp";
 
 const gallery = [
-  {
-    images: [
-      {
-        src: GalleryImage1,
-        alt: "Фото из урока"
-      }
-    ]
-  },
-  {
-    type: "grid",
-    images: [
-      {
-        src: GalleryImage2,
-        alt: "Фото из урока"
-      },
-      {
-        src: GalleryImage3,
-        alt: "Фото из урока"
-      },
-      {
-        src: GalleryImage4,
-        alt: "Фото из урока"
-      },
-      {
-        src: GalleryImage5,
-        alt: "Фото из урока"
-      }
-    ]
-  },
-  {
-    type: "grid",
-    images: [
-      {
-        src: GalleryImage6,
-        alt: "Фото из урока"
-      },
-      {
-        src: GalleryImage7,
-        alt: "Фото из урока"
-      },
-      {
-        src: GalleryImage8,
-        alt: "Фото из урока"
-      },
-      {
-        src: GalleryImage9,
-        alt: "Фото из урока"
-      }
-    ]
-  },
-  {
-    images: [
-      {
-        src: GalleryImage10,
-        alt: "Фото из урока"
-      }
-    ]
-  }
+  GalleryImage1,
+  GalleryImage2,
+  GalleryImage3,
+  GalleryImage4,
+  GalleryImage5,
+  GalleryImage6,
+  GalleryImage7,
+  GalleryImage8,
+  GalleryImage9,
+  GalleryImage10
 ];
 
 export { gallery };

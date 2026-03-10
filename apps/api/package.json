@@ -15,8 +15,8 @@
   "dependencies": {
     "@hono/valibot-validator": "^0.6.1",
     "grammy": "^1.41.1",
-    "hono": "^4.12.5",
-    "libphonenumber-js": "^1.12.38",
+    "hono": "^4.12.6",
+    "libphonenumber-js": "^1.12.39",
     "valibot": "^1.2.0"
   }
 }

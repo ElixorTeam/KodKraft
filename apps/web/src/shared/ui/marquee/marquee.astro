@@ -1,0 +1,26 @@
+---
+import { cn } from "@/shared/utils/cn";
+import type { HTMLAttributes } from "astro/types";
+import { Marquee as SvelteMarquee } from "svelte-fast-marquee";
+
+type Props = HTMLAttributes<"div"> & {
+  direction?: "left" | "right";
+  speed?: number;
+  fade?: boolean;
+  pauseOnFocus?: boolean;
+};
+
+const { class: className, direction, speed, fade, pauseOnFocus } = Astro.props;
+---
+
+<SvelteMarquee
+  client:only="svelte"
+  pauseOnHover={pauseOnFocus}
+  pauseOnClick={pauseOnFocus}
+  gradientColor={fade ? "var(--background)" : undefined}
+  gradientWidth={fade ? "10%" : undefined}
+  speed={speed ?? 30}
+  class={cn("starwind-marquee", className)}
+>
+  <slot />
+</SvelteMarquee>
