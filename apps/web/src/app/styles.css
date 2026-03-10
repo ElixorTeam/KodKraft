@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "@selemondev/svelte-marquee/dist/style.css";
 @import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 @custom-variant dark (&:is(.dark *));
