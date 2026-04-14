@@ -25,7 +25,11 @@ import { contacts } from "../config/contacts";
         )
       }
 
-      <DialogTrigger for="callback-dialog" asChild>
+      <DialogTrigger
+        for="callback-dialog"
+        data-metric="header-callback"
+        asChild
+      >
         <Button class="hidden h-8 font-semibold md:inline-flex">
           Записаться
           <PixelChevronIcon />

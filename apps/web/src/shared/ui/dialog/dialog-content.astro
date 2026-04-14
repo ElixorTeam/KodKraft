@@ -11,15 +11,15 @@ type Props = HTMLAttributes<"dialog"> & {
 };
 
 const dialogBackdrop = [
-  "starwind-dialog-backdrop fixed inset-0 top-0 left-0 z-50 hidden h-screen w-screen bg-black/25 backdrop-blur-xs",
+  "starwind-dialog-backdrop fixed inset-0 z-50 isolate hidden bg-black/25 supports-backdrop-filter:backdrop-blur-xs",
   "data-[state=open]:animate-in fade-in",
   "data-[state=closed]:animate-out data-[state=closed]:fill-mode-forwards fade-out"
 ];
 
 export const dialogContent = [
   "starwind-dialog-content",
-  "fixed bottom-0 top-[unset] left-[50%] z-50 translate-x-[-50%] sm:top-[50%] sm:translate-y-[-50%]",
-  "bg-background w-full max-w-md sm:rounded-lg border p-8 shadow-lg",
+  "fixed left-1/2 z-50 -translate-x-1/2 top-1/2 -translate-y-1/2",
+  "bg-background w-full max-w-[calc(100%-2rem)] rounded-lg p-8 shadow-lg",
   "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fill-mode-forwards transition-[translate,scale,opacity]",
   "fade-in zoom-in-95 slide-in-from-bottom-2",
   "fade-out zoom-out-95 slide-out-to-bottom-2",

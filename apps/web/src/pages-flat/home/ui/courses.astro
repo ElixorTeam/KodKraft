@@ -60,7 +60,11 @@ import {
                   / месяц
                 </div>
 
-                <DialogTrigger for="callback-dialog" asChild>
+                <DialogTrigger
+                  for="callback-dialog"
+                  data-metric={item.metric}
+                  asChild
+                >
                   <Button size="sm" class="h-7 text-xs font-semibold">
                     <span class="hidden lg:inline">Записаться</span>
                     <PixelChevronIcon class="size-3" />

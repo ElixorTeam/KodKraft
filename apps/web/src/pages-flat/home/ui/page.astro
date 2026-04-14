@@ -29,7 +29,7 @@ import Ghost from "@/shared/assets/ghost.webp";
 
 <Header />
 
-<main class="relative container mx-auto min-h-screen w-full pt-12">
+<main class="relative container mx-auto size-full min-h-screen pt-12">
   <div class="animate-appear-zoom absolute -top-32 -z-10 w-full delay-1000">
     <div
       class="absolute left-1/2 h-64 w-[40%] -translate-x-1/2 scale-[2.5] rounded-[50%] bg-radial from-primary/75 from-10% to-primary/0 to-60% opacity-20 sm:h-128 dark:opacity-50"
@@ -41,7 +41,9 @@ import Ghost from "@/shared/assets/ghost.webp";
     </div>
   </div>
 
-  <section class="my-20 md:my-32">
+  <section
+    class="my-20 animate-in duration-1000 blur-in fade-in md:my-32 md:slide-in-from-bottom-15"
+  >
     <div
       class="relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-4 px-4 text-center sm:px-6 md:gap-8 lg:px-8"
     >
@@ -60,7 +62,11 @@ import Ghost from "@/shared/assets/ghost.webp";
         поможет вашему ребёнку уверенно чувствовать себя в мире технологий.
       </p>
 
-      <DialogTrigger for="callback-dialog" asChild>
+      <DialogTrigger
+        for="callback-dialog"
+        data-metric="landing-callback"
+        asChild
+      >
         <Button class="font-semibold">
           Узнать больше
           <PixelChevronIcon />
@@ -90,25 +96,27 @@ import Ghost from "@/shared/assets/ghost.webp";
   </Section> -->
 
   <Section>
-    <SectionHeader>
-      <div class="space-y-2">
-        <Badge variant="outline">
-          <div class="mr-1 size-1.5 rounded-full bg-primary"></div>
-          Курсы
-        </Badge>
-        <SectionTitle>Программы обучения</SectionTitle>
-      </div>
+    <div class="w-full">
+      <SectionHeader>
+        <div class="space-y-2">
+          <Badge variant="outline">
+            <div class="mr-1 size-1.5 rounded-full bg-primary"></div>
+            Курсы
+          </Badge>
+          <SectionTitle>Программы обучения</SectionTitle>
+        </div>
 
-      <SectionDescription>
-        Каждая программа разработана опытными преподавателями с практическим
-        опытом в IT. Мы учим детей программировать, мыслить системно и работать
-        над реальными проектами.
-      </SectionDescription>
-    </SectionHeader>
+        <SectionDescription>
+          Каждая программа разработана опытными преподавателями с практическим
+          опытом в IT. Мы учим детей программировать, мыслить системно и
+          работать над реальными проектами.
+        </SectionDescription>
+      </SectionHeader>
 
-    <SectionContent class="px-0 sm:-mb-4 lg:-mb-8">
-      <Courses />
-    </SectionContent>
+      <SectionContent class="px-0 sm:-mb-4 lg:-mb-8">
+        <Courses />
+      </SectionContent>
+    </div>
   </Section>
 
   <Section>
@@ -129,7 +137,11 @@ import Ghost from "@/shared/assets/ghost.webp";
             практическое занятие и ответим на все ваши вопросы.
           </p>
 
-          <DialogTrigger for="callback-dialog" asChild>
+          <DialogTrigger
+            for="callback-dialog"
+            data-metric="cta-callback"
+            asChild
+          >
             <Button class="mt-4 font-semibold">
               Записаться
               <PixelChevronIcon />

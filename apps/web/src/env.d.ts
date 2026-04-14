@@ -1,5 +1,6 @@
 interface ImportMetaEnv {
   readonly PUBLIC_API_URL: string;
+  readonly FRONTEND_URL: string;
 }
 
 interface ImportMeta {

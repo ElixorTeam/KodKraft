@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { check, object, pipe, string } from "valibot";
+import { check, object, optional, pipe, string } from "valibot";
 import { vValidator } from "@hono/valibot-validator";
 import parsePhoneNumberFromString from "libphonenumber-js";
 import { bot, config } from "../config";
@@ -27,11 +27,12 @@ const callbackSchema = object({
     check((phone) => {
       return parsePhoneNumberFromString(phone, "RU")?.isValid() ?? false;
     }, "Invalid phone number")
-  )
+  ),
+  metric: optional(string())
 });
 
 app.post("", vValidator("json", callbackSchema), async (c) => {
-  const { name, phone } = c.req.valid("json");
+  const { name, phone, metric } = c.req.valid("json");
 
   const parsedPhone = parsePhoneNumberFromString(phone, "RU");
 
@@ -46,7 +47,14 @@ app.post("", vValidator("json", callbackSchema), async (c) => {
 
   const displayPhone = parsedPhone.formatNational();
   const time = new Date().toLocaleString("ru-RU");
-  const text = `📲 Новая запись!\n\nИмя: ${name}\nНомер: ${displayPhone}\nВремя: ${time}`;
+  const text = `
+  📲 Новая запись!
+
+  Имя: ${name}
+  ${metric ? `Метрика: ${metric}` : ""}
+  Номер: ${displayPhone}
+  Время: ${time}
+  `;
 
   await bot.api.sendMessage(config.TELEGRAM_CHAT_ID, text, {
     parse_mode: "HTML"

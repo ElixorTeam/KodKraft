@@ -1,25 +1,59 @@
 ---
 import { Dialog, DialogContent, DialogTitle } from "@/shared/ui/dialog";
-import AbstractBackground from "@/shared/assets/abstract-bg.webp";
+import AbstractBackground from "@/shared/assets/abstract-bg-2.jpg";
 import CallbackForm from "./callback-form.svelte";
 import { Image } from "astro:assets";
+import KodKraftMiniLogo from "@/shared/assets/mini-logo.svg";
 ---
 
 <Dialog id="callback-dialog">
   <DialogContent
-    class="w-full max-w-3xl border-none p-0 text-foreground md:min-h-120"
+    class="border-none p-3 text-foreground sm:max-w-md sm:p-0 md:max-w-4xl"
   >
-    <div class="grid grid-cols-1 md:grid-cols-2">
-      <div class="hidden size-full md:block">
+    <div class="grid grid-cols-1 p-3 md:h-160 md:grid-cols-2">
+      <div class="relative hidden size-full overflow-hidden md:block">
         <Image
           src={AbstractBackground}
           alt="Abstract Background"
-          class="size-full rounded-l-sm object-cover"
+          class="size-full rounded-sm object-cover"
         />
+
+        <KodKraftMiniLogo class="absolute top-6 left-8 h-9 fill-white" />
+
+        <div class="absolute bottom-0 p-8 text-white">
+          <span class="block pb-2">Попробуйте уже завтра</span>
+
+          <span class="text-2xl font-extrabold">
+            Узнайте как проходит урок. Первое занятие - бесплатное.
+          </span>
+        </div>
       </div>
-      <div class="p-5">
-        <DialogTitle class="font-medium">Обратная связь</DialogTitle>
-        <CallbackForm client:only="svelte" />
+
+      <div class="items-center justify-center sm:flex sm:p-10">
+        <div class="w-full space-y-3">
+          <DialogTitle class="font-medium sm:text-3xl">
+            Есть вопросы?<br />
+            <span class="font-semibold">Оставьте заявку сейчас.</span>
+          </DialogTitle>
+
+          <p class="text-sm text-muted-foreground md:pb-4">
+            Обсудим программы обучения, время занятий, срок обучения и
+            стоимость.
+          </p>
+
+          <CallbackForm client:only="svelte" />
+        </div>
+      </div>
+    </div>
+  </DialogContent>
+</Dialog>
+<Dialog id="success-dialog">
+  <DialogContent class="text-foreground">
+    <div class="flex flex-col gap-3">
+      <div class="text-center text-2xl font-medium">Заявка отправлена!</div>
+
+      <div class="text-center text-sm text-muted-foreground">
+        В ближайшее время с вами свяжется наш менеджер.
       </div>
     </div>
   </DialogContent>

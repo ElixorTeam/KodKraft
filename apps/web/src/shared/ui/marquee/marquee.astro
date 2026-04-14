@@ -8,17 +8,27 @@ type Props = HTMLAttributes<"div"> & {
   speed?: number;
   fade?: boolean;
   pauseOnFocus?: boolean;
+  active?: boolean;
 };
 
-const { class: className, direction, speed, fade, pauseOnFocus } = Astro.props;
+const {
+  class: className,
+  direction,
+  speed,
+  fade,
+  pauseOnFocus,
+  active
+} = Astro.props;
 ---
 
+<!-- client:only="svelte" -->
 <SvelteMarquee
-  client:only="svelte"
+  direction={direction ?? "left"}
   pauseOnHover={pauseOnFocus}
   pauseOnClick={pauseOnFocus}
   gradientColor={fade ? "var(--background)" : undefined}
   gradientWidth={fade ? "10%" : undefined}
+  play={active ?? true}
   speed={speed ?? 30}
   class={cn("starwind-marquee", className)}
 >

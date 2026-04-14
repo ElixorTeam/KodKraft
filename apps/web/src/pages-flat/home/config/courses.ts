@@ -10,6 +10,7 @@ const courses = [
     name: "Python",
     group: "с 11 лет",
     price: 5000,
+    metric: "cource-python",
     description:
       "Изучаем основы программирования, создаём первые приложения и учимся мыслить как разработчики."
   },
@@ -18,6 +19,7 @@ const courses = [
     name: "Scratch",
     group: "7-10 лет",
     price: 5000,
+    metric: "cource-scratch",
     description:
       "Создаём игры и анимации в визуальной среде, развивая логику и креативное мышление."
   },
@@ -26,6 +28,7 @@ const courses = [
     name: "C#",
     group: "c 15 лет",
     price: 5000,
+    metric: "cource-csharp",
     description:
       "Осваиваем современный язык разработки и создаём полноценные проекты и игровые механики."
   },
@@ -34,6 +37,7 @@ const courses = [
     name: "Pygame",
     group: "c 14 лет",
     price: 5000,
+    metric: "cource-pygame",
     description:
       "Программируем собственные 2D-игры на Python и изучаем принципы геймдизайна."
   },
@@ -42,6 +46,7 @@ const courses = [
     name: "Godot",
     group: "c 14 лет",
     price: 5000,
+    metric: "cource-godot",
     description:
       "Разрабатываем игры на профессиональном движке и изучаем основы игровой логики и сцен."
   }

@@ -32,6 +32,7 @@ const { class: className, ...rest } = Astro.props;
     private isNested: boolean = false;
     private _closeTimeout: number | null = null;
     private _isClosing: boolean = false;
+    private touchHandler: EventListener | null = null;
 
     constructor(dialogWrapper: HTMLElement, dialogNumber: number) {
       this.dialogWrapper = dialogWrapper;
@@ -267,7 +268,12 @@ const { class: className, ...rest } = Astro.props;
       this.updateNestedState();
 
       this.dialog.showModal();
-      document.body.classList.add("overflow-hidden");
+      document.body.classList.add("dialog-overflow");
+
+      this.touchHandler = (e) => e.preventDefault();
+      document.addEventListener("touchmove", this.touchHandler, {
+        passive: false
+      });
 
       // For nested dialogs, hide the backdrop and notify parent
       if (this.isNested && this.parentDialog) {
@@ -312,7 +318,9 @@ const { class: className, ...rest } = Astro.props;
         this._closeTimeout = null;
         const stillOpen = document.querySelectorAll("dialog[open]").length;
         if (stillOpen === 0) {
-          document.body.classList.remove("overflow-hidden");
+          document.body.classList.remove("dialog-overflow");
+          if (this.touchHandler)
+            document.removeEventListener("touchmove", this.touchHandler);
         }
       }, this.animationDuration);
     }
@@ -404,9 +412,3 @@ const { class: className, ...rest } = Astro.props;
   document.addEventListener("astro:after-swap", setupDialogs);
   document.addEventListener("starwind:init", setupDialogs);
 </script>
-
-<style>
-  .overflow-hidden {
-    overflow: hidden;
-  }
-</style>
