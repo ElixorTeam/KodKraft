@@ -3,6 +3,10 @@ import "@fontsource/wix-madefor-display";
 import { YandexMetrika } from "astro-ym";
 import { Seo } from "astro-seo-meta";
 import { Font } from "astro:assets";
+import { Schema } from "astro-seo-schema";
+import { contacts } from "@/pages-flat/home/config/contacts";
+import { courses } from "@/pages-flat/home/config/courses";
+import type { EducationalOrganization, Graph, WebPage } from "schema-dts";
 import "./styles.css";
 
 const title = "КодКрафт – Школа программирования";
@@ -19,6 +23,73 @@ const keywords = [
   "web-разработка",
   "робототехника"
 ];
+
+const education: EducationalOrganization = {
+  "@type": "EducationalOrganization",
+  name: "КодКрафт",
+  description: description,
+  telephone: contacts.phone?.formatNational(),
+  email: contacts.email,
+  areaServed: "RU",
+  foundingDate: "2018",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "ул. Чехова, 5",
+    addressLocality: "Владимир",
+    postalCode: "600006",
+    addressCountry: "RU"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 56.134151,
+    longitude: 40.415219
+  },
+  openingHours: "Mo-Su 09:00-21:00",
+  sameAs: [
+    contacts.avito,
+    contacts.vk,
+    contacts.telegram,
+    contacts.whatsapp,
+    contacts.max
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Курсы программирования",
+    itemListElement: courses.map((item) => {
+      return {
+        "@type": "Course",
+        name: item.name,
+        description: item.description,
+        provider: {
+          "@type": "Organization",
+          name: "КодКрафт"
+        }
+      };
+    })
+  }
+};
+
+const webpage: WebPage = {
+  "@type": "WebPage",
+  name: title,
+  description: description,
+  url: import.meta.env.SITE,
+  inLanguage: "ru",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "КодКрафт",
+    url: import.meta.env.SITE
+  },
+  about: {
+    "@type": "EducationalOrganization",
+    name: "КодКрафт"
+  }
+};
+
+const graph: Graph = {
+  "@context": "https://schema.org",
+  "@graph": [education, webpage]
+};
 ---
 
 <html lang="en">
@@ -38,6 +109,9 @@ const keywords = [
       icon="/favicon.svg"
       robots="index, follow"
     />
+
+    <!-- JSON-LD -->
+    <Schema item={graph} />
 
     <!-- Яндекс.Вебмастер -->
     <meta name="yandex-verification" content="ef5c375d86ba34a4" />
