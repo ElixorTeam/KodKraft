@@ -1,5 +1,4 @@
 ---
-import "@fontsource/wix-madefor-display";
 import { YandexMetrika } from "astro-ym";
 import { Seo } from "astro-seo-meta";
 import { Font } from "astro:assets";
@@ -106,8 +105,10 @@ const graph: Graph = {
       title={title}
       description={description}
       keywords={keywords}
-      icon="/favicon.svg"
+      icon="/favicon.ico"
       robots="index, follow"
+      colorScheme="light"
+      themeColor="#ff4500"
     />
 
     <!-- JSON-LD -->

@@ -5,7 +5,10 @@ import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import { loadEnv } from "vite";
 
-const { FRONTEND_URL } = loadEnv(process.env.FRONTEND_URL, process.cwd(), "");
+const { FRONTEND_URL } = loadEnv(
+  process.env.FRONTEND_URL ?? "localhost",
+  process.cwd()
+);
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,7 +24,10 @@ export default defineConfig({
     {
       name: "Wix Madefor Display",
       cssVariable: "--font-wix",
-      provider: fontProviders.google()
+      provider: fontProviders.google(),
+      optimizedFallbacks: false,
+      subsets: ["latin", "cyrillic"],
+      weights: ["400 800"]
     }
   ]
 });
