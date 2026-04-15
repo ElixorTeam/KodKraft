@@ -7,7 +7,8 @@ import { loadEnv } from "vite";
 
 const { FRONTEND_URL } = loadEnv(
   process.env.FRONTEND_URL ?? "localhost",
-  process.cwd()
+  process.cwd(),
+  ""
 );
 
 // https://astro.build/config
