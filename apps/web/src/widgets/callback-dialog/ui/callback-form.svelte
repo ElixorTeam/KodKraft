@@ -92,6 +92,7 @@
           id={field.name}
           type="tel"
           inputmode="tel"
+          autocomplete="tel"
           placeholder="+7 (___) ___-__-__"
           template={{ mask: "+7 (###) ###-##-##" }}
           value={field.state.value}
