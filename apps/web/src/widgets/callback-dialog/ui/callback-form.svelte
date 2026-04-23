@@ -90,7 +90,8 @@
         <FieldLabel for={field.name}>Телефон</FieldLabel>
         <MaskedInput
           id={field.name}
-          type="text"
+          type="tel"
+          inputmode="tel"
           placeholder="+7 (___) ___-__-__"
           template={{ mask: "+7 (###) ###-##-##" }}
           value={field.state.value}

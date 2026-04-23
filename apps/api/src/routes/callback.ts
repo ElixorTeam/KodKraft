@@ -45,14 +45,27 @@ app.post("", vValidator("json", callbackSchema), async (c) => {
       429
     );
 
-  const displayPhone = parsedPhone.formatNational();
-  const time = new Date().toLocaleString("ru-RU");
+  const displayPhone = parsedPhone.number;
+
+  const now = new Date();
+
+  const date = now.toLocaleDateString("ru-RU", {
+    timeZone: "Europe/Moscow"
+  });
+
+  const time = now.toLocaleTimeString("ru-RU", {
+    timeZone: "Europe/Moscow",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   const text = `
   📲 Новая запись!
 
   Имя: ${name}
   ${metric ? `Метрика: ${metric}` : ""}
   Номер: ${displayPhone}
+  Дата: ${date},
   Время: ${time}
   `;
 
