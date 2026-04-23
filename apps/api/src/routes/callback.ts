@@ -2,21 +2,9 @@ import { Hono } from "hono";
 import { check, object, optional, pipe, string } from "valibot";
 import { vValidator } from "@hono/valibot-validator";
 import parsePhoneNumberFromString from "libphonenumber-js";
-import { bot, config } from "../config";
-
-const recentSubmissions = new Map();
-const COOLDOWN = 10 * 60 * 1000;
-
-const checkIsValidPhone = (phone: string) => {
-  const now = Date.now();
-  const lastTime = recentSubmissions.get(phone);
-  const isRecent = lastTime && now - lastTime < COOLDOWN;
-
-  if (isRecent) return false;
-
-  recentSubmissions.set(phone, now);
-  return true;
-};
+import { checkIsValidPhone } from "../utils/phone";
+import { TelegramProvider } from "../services/notification/telegram-provider";
+import type { CallbackPayload } from "../services/notification/types";
 
 const app = new Hono();
 
@@ -44,35 +32,16 @@ app.post("", vValidator("json", callbackSchema), async (c) => {
       { success: false, message: "You have already sent recently" },
       429
     );
-
-  const displayPhone = parsedPhone.number;
-
-  const now = new Date();
-
-  const date = now.toLocaleDateString("ru-RU", {
-    timeZone: "Europe/Moscow"
-  });
-
-  const time = now.toLocaleTimeString("ru-RU", {
-    timeZone: "Europe/Moscow",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  const text = `
-  📲 Новая запись!
-
-  Имя: ${name}
-  ${metric ? `Метрика: ${metric}` : ""}
-  Номер: ${displayPhone}
-  Дата: ${date},
-  Время: ${time}
-  `;
-
-  await bot.api.sendMessage(config.TELEGRAM_CHAT_ID, text, {
-    parse_mode: "HTML"
-  });
-
+  
+  const provider = new TelegramProvider()
+  const payload: CallbackPayload = {
+    name,
+    phone: parsedPhone,
+    metric: metric,
+    date: new Date(),
+  };
+  
+  await provider.send(payload);
   return c.json({ success: true });
 });
 

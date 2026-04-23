@@ -11,3 +11,4 @@ const envSchema = object({
 export const config = parse(envSchema, env);
 
 export const bot = new Bot(config.TELEGRAM_BOT_TOKEN);
+export const RATE_LIMIT_COOLDOWN_MS = 10 * 60 * 1000;
