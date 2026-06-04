@@ -3,14 +3,22 @@ import KodKraftLogo from "@/shared/assets/logo.svg";
 import PixelChevronIcon from "@/shared/assets/icons/pixel-chevron.svg";
 import { Button } from "@/shared/ui/button";
 import { DialogTrigger } from "@/shared/ui/dialog";
-import { contacts } from "../config/contacts";
+import { contacts, formatPhone } from "../config/contacts";
+
+interface Props {
+  useCallbackDialog?: boolean;
+}
+
+const { useCallbackDialog = true } = Astro.props;
 ---
 
 <header id="site-header" class="fixed top-0 z-40 w-screen transition-colors">
   <div
     class="container mx-auto flex h-12 w-full items-center justify-between px-4 sm:px-6 md:h-16 lg:px-8"
   >
-    <KodKraftLogo class="h-7 md:h-9" />
+    <a href="/" aria-label="На главную" class="shrink-0">
+      <KodKraftLogo class="h-7 md:h-9" />
+    </a>
 
     <div class="inline-flex items-center md:gap-4">
       {
@@ -20,21 +28,33 @@ import { contacts } from "../config/contacts";
             href={contacts["phone"].getURI()}
             class="px-0 md:px-2"
           >
-            {contacts["phone"].formatNational()}
+            {formatPhone(contacts["phone"])}
           </Button>
         )
       }
 
-      <DialogTrigger
-        for="callback-dialog"
-        data-metric="header-callback"
-        asChild
-      >
-        <Button class="hidden h-8 font-semibold md:inline-flex">
-          Записаться
-          <PixelChevronIcon />
-        </Button>
-      </DialogTrigger>
+      {
+        useCallbackDialog ? (
+          <DialogTrigger
+            for="callback-dialog"
+            data-metric="header-callback"
+            asChild
+          >
+            <Button class="hidden h-8 font-semibold md:inline-flex">
+              Записаться
+              <PixelChevronIcon />
+            </Button>
+          </DialogTrigger>
+        ) : (
+          <Button
+            href="/"
+            class="hidden h-8 font-semibold md:inline-flex"
+          >
+            Записаться
+            <PixelChevronIcon />
+          </Button>
+        )
+      }
     </div>
   </div>
 </header>

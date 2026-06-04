@@ -3,29 +3,25 @@ import { Button } from "@/shared/ui/button";
 import SocialTelegramIcon from "@/shared/assets/socials/telegram.svg";
 import SocialVKIcon from "@/shared/assets/socials/vk.svg";
 import SocialWhatsAppIcon from "@/shared/assets/socials/whatsapp.svg";
+import SocialMaxIcon from "@/shared/assets/socials/max.svg";
 import { contacts } from "../config/contacts";
 ---
 
 <footer
-  class="flex h-12 w-full items-center justify-between px-4 sm:px-6 lg:px-8"
+  class="flex h-12 w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
 >
-  <span class="text-sm">© 2018-2026 КодКрафт. Все права защищены</span>
+  <div class="flex min-w-0 items-center gap-3 text-sm">
+    <span class="truncate">© 2018-2026 КодКрафт. Все права защищены</span>
+    <Button
+      href="/policy"
+      variant="link"
+      class="h-fit shrink-0 p-0 text-sm text-muted-foreground whitespace-nowrap"
+    >
+      Политика конфиденциальности
+    </Button>
+  </div>
 
   <div class="flex items-center gap-1">
-    {
-      contacts["telegram"] && (
-        <Button
-          href={contacts["telegram"]}
-          size="icon"
-          variant="ghost"
-          target="_blank"
-        >
-          <SocialTelegramIcon class="size-6" />
-          <span class="sr-only">Телеграм канал</span>
-        </Button>
-      )
-    }
-
     {
       contacts["vk"] && (
         <Button
@@ -36,6 +32,34 @@ import { contacts } from "../config/contacts";
         >
           <SocialVKIcon class="size-6" />
           <span class="sr-only">Сообщество Вконтакте</span>
+        </Button>
+      )
+    }
+
+    {
+      contacts["max"] && (
+        <Button
+          href={contacts["max"]}
+          size="icon"
+          variant="ghost"
+          target="_blank"
+        >
+          <SocialMaxIcon class="size-6" />
+          <span class="sr-only">Max (канал)</span>
+        </Button>
+      )
+    }
+
+    {
+      contacts["telegram"] && (
+        <Button
+          href={contacts["telegram"]}
+          size="icon"
+          variant="ghost"
+          target="_blank"
+        >
+          <SocialTelegramIcon class="size-6" />
+          <span class="sr-only">Телеграм канал</span>
         </Button>
       )
     }

@@ -3,7 +3,7 @@ import { YandexMetrika } from "astro-ym";
 import { Seo } from "astro-seo-meta";
 import { Font } from "astro:assets";
 import { Schema } from "astro-seo-schema";
-import { contacts } from "@/pages-flat/home/config/contacts";
+import { contacts, formatPhone } from "@/pages-flat/home/config/contacts";
 import { courses } from "@/pages-flat/home/config/courses";
 import type { EducationalOrganization, Graph, WebPage } from "schema-dts";
 import "./styles.css";
@@ -27,8 +27,7 @@ const education: EducationalOrganization = {
   "@type": "EducationalOrganization",
   name: "КодКрафт",
   description: description,
-  telephone: contacts.phone?.formatNational(),
-  email: contacts.email,
+  telephone: formatPhone(contacts.phone),
   areaServed: "RU",
   foundingDate: "2018",
   address: {
@@ -45,10 +44,8 @@ const education: EducationalOrganization = {
   },
   openingHours: "Mo-Su 09:00-21:00",
   sameAs: [
-    contacts.avito,
     contacts.vk,
     contacts.telegram,
-    contacts.whatsapp,
     contacts.max
   ],
   hasOfferCatalog: {
@@ -91,7 +88,7 @@ const graph: Graph = {
 };
 ---
 
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
     <meta

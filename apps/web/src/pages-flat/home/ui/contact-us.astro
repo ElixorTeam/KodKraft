@@ -1,8 +1,8 @@
 ---
 import SocialTelegramIcon from "@/shared/assets/socials/telegram.svg";
 import SocialVKIcon from "@/shared/assets/socials/vk.svg";
-import SocialWhatsAppIcon from "@/shared/assets/socials/whatsapp.svg";
-import { contacts } from "@/pages-flat/home/config/contacts";
+import SocialMaxIcon from "@/shared/assets/socials/max.svg";
+import { contacts, formatPhone } from "@/pages-flat/home/config/contacts";
 import { Button } from "@/shared/ui/button";
 ---
 
@@ -19,9 +19,10 @@ import { Button } from "@/shared/ui/button";
     </iframe>
   </div>
 
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-8">
-    <div class="flex flex-col gap-4">
-      <div class="text-2xl font-semibold">Контакты</div>
+  <div class="flex flex-col gap-4 lg:gap-8">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-8">
+      <div class="flex flex-col gap-4">
+        <div class="text-2xl font-semibold">Контакты</div>
 
       {
         contacts["phone"] && (
@@ -31,25 +32,8 @@ import { Button } from "@/shared/ui/button";
               href={contacts["phone"].getURI()}
               variant="link"
               class="h-fit p-0 text-base whitespace-normal"
-              target="_blank"
             >
-              {contacts["phone"].formatNational()}
-            </Button>
-          </div>
-        )
-      }
-
-      {
-        contacts["email"] && (
-          <div class="space-y-0.5">
-            <div class="text-muted-foreground">Почта</div>
-            <Button
-              href={contacts["email"]}
-              variant="link"
-              class="h-fit p-0 text-base whitespace-normal"
-              target="_blank"
-            >
-              {contacts["email"]}
+              {formatPhone(contacts["phone"])}
             </Button>
           </div>
         )
@@ -79,21 +63,6 @@ import { Button } from "@/shared/ui/button";
 
     <div class="flex flex-col gap-4">
       <div class="text-2xl font-semibold">Социальные сети</div>
-
-      {
-        contacts["telegram"] && (
-          <Button
-            href={contacts["telegram"]}
-            variant="link"
-            class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
-            target="_blank"
-          >
-            <SocialTelegramIcon class="size-6" />
-            Телеграм канал
-          </Button>
-        )
-      }
-
       {
         contacts["vk"] && (
           <Button
@@ -103,24 +72,58 @@ import { Button } from "@/shared/ui/button";
             target="_blank"
           >
             <SocialVKIcon class="size-6" />
-            Сообщество Вконтакте
+            Вконтакте
           </Button>
         )
       }
-
       {
-        contacts["whatsapp"] && (
+        contacts["max"] && (
           <Button
-            href={contacts["whatsapp"]}
+            href={contacts["max"]}
             variant="link"
             class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
             target="_blank"
           >
-            <SocialWhatsAppIcon class="size-6" />
-            WhatsApp
+            <SocialMaxIcon class="size-6" />
+            Max (канал)
+          </Button>
+        )
+      }
+      {
+        contacts["telegram"] && (
+          <Button
+            href={contacts["telegram"]}
+            variant="link"
+            class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
+            target="_blank"
+          >
+            <SocialTelegramIcon class="size-6" />
+            Телеграм (канал)
           </Button>
         )
       }
     </div>
+  </div>
+
+  <div class="flex w-full flex-col gap-4">
+    <div class="text-2xl font-semibold">Реквизиты ИП</div>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-8">
+      <div class="space-y-0.5">
+        <div class="text-muted-foreground">ФИО</div>
+        <div>{contacts["fio"]}</div>
+      </div>
+
+      <div class="space-y-0.5">
+        <div class="text-muted-foreground">ИНН</div>
+        <div>{contacts["inn"]}</div>
+      </div>
+
+      <div class="space-y-0.5">
+        <div class="text-muted-foreground">ОГРНИП</div>
+        <div>{contacts["ogrnip"]}</div>
+      </div>
+    </div>
+  </div>
   </div>
 </div>

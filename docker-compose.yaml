@@ -5,6 +5,7 @@ services:
       dockerfile: ./apps/web/Dockerfile
       args:
         PUBLIC_API_URL: ${PUBLIC_API_URL}
+        FRONTEND_URL: ${FRONTEND_URL}
     env_file:
       - .env
     ports:

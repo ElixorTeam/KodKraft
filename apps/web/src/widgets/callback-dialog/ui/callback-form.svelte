@@ -117,5 +117,17 @@
     >
       Отправить
     </button>
+    <p class="text-xs text-muted-foreground">
+      Нажимая «Отправить», вы соглашаетесь с
+      <a
+        href="/policy"
+        class="underline underline-offset-4"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        политикой конфиденциальности
+      </a>
+      .
+    </p>
   </div>
 </form>
