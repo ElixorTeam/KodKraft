@@ -8,6 +8,16 @@
 
   let metric = $state("");
 
+  const waitForDialogClosed = (wrapper: Element | null) =>
+    new Promise<void>((resolve) => {
+      const dialog = wrapper?.querySelector("dialog");
+      if (!dialog?.open) {
+        resolve();
+        return;
+      }
+      dialog.addEventListener("close", () => resolve(), { once: true });
+    });
+
   const form = createForm(() => ({
     defaultValues: {
       name: "",
@@ -26,7 +36,13 @@
       const callbackDialog = document.querySelector("#callback-dialog");
       const successDialog = document.querySelector("#success-dialog");
 
+      // Blur inputs so mobile keyboards release scroll lock before closing
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+
       callbackDialog?.dispatchEvent(new Event("dialog:close"));
+      await waitForDialogClosed(callbackDialog);
       successDialog?.dispatchEvent(new Event("dialog:open"));
       form.reset();
     }

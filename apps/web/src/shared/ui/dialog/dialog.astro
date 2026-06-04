@@ -317,17 +317,11 @@ const { class: className, ...rest } = Astro.props;
         this._isClosing = false;
         this._closeTimeout = null;
 
-        // Always remove this dialog's touch listener — another dialog may
-        // already be open (e.g. callback → success), and leaving stale
-        // listeners blocks mobile scroll after the last dialog closes.
-        if (this.touchHandler) {
-          document.removeEventListener("touchmove", this.touchHandler);
-          this.touchHandler = null;
-        }
-
         const stillOpen = document.querySelectorAll("dialog[open]").length;
         if (stillOpen === 0) {
           document.body.classList.remove("dialog-overflow");
+          if (this.touchHandler)
+            document.removeEventListener("touchmove", this.touchHandler);
         }
       }, this.animationDuration);
     }
