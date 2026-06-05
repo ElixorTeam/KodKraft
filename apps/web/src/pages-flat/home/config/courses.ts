@@ -6,50 +6,50 @@ import CourseImage5 from "@/shared/assets/courses/course-5.png";
 
 const courses = [
   {
-    imageSrc: CourseImage1,
-    name: "Python",
-    group: "с 11 лет",
-    price: 5000,
-    metric: "cource-python",
-    description:
-      "Изучаем основы программирования, создаём первые приложения и учимся мыслить как разработчики."
-  },
-  {
     imageSrc: CourseImage2,
     name: "Scratch",
     group: "7-10 лет",
     price: 5000,
-    metric: "cource-scratch",
+    metric: "course-scratch",
     description:
-      "Создаём игры и анимации в визуальной среде, развивая логику и креативное мышление."
+        "Создаём игры и анимации в визуальной среде, развивая логику и креативное мышление."
   },
   {
-    imageSrc: CourseImage3,
-    name: "C#",
-    group: "c 15 лет",
+    imageSrc: CourseImage1,
+    name: "Python",
+    group: "с 11 лет",
     price: 5000,
-    metric: "cource-csharp",
+    metric: "course-python",
     description:
-      "Осваиваем современный язык разработки и создаём полноценные проекты и игровые механики."
+      "Изучаем основы программирования, создаём первые приложения и учимся мыслить как разработчики."
   },
   {
     imageSrc: CourseImage4,
     name: "Pygame",
     group: "c 14 лет",
     price: 5000,
-    metric: "cource-pygame",
+    metric: "course-pygame",
     description:
-      "Программируем собственные 2D-игры на Python и изучаем принципы геймдизайна."
+        "Программируем собственные 2D-игры на Python и изучаем принципы геймдизайна."
   },
   {
     imageSrc: CourseImage5,
     name: "Godot",
     group: "c 14 лет",
     price: 5000,
-    metric: "cource-godot",
+    metric: "course-godot",
     description:
-      "Разрабатываем игры на профессиональном движке и изучаем основы игровой логики и сцен."
-  }
+        "Разрабатываем игры на профессиональном движке и изучаем основы игровой логики и сцен."
+  },
+  {
+    imageSrc: CourseImage3,
+    name: "C#",
+    group: "c 15 лет",
+    price: 5000,
+    metric: "course-csharp",
+    description:
+      "Осваиваем современный язык разработки и создаём полноценные проекты и игровые механики."
+  },
 ];
 
 export { courses };

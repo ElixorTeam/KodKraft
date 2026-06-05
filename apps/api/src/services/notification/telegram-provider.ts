@@ -18,8 +18,8 @@ export class TelegramProvider implements NotificationProvider {
     const lines = [
       "📲 Новая запись!\n",
       `Имя: ${name}`,
-      metric ? `Метрика: ${metric}` : null,
       `Номер: ${phone.number}`,
+       metric ? `Метрика: ${metric}` : null,
       `Дата: ${dateRu}`,
       `Время: ${timeRu}`
     ].filter((x): x is string => x !== null);

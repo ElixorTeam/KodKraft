@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createForm } from "@tanstack/svelte-form";
-  import { formSchema } from "../model/form-schema";
+  import { formSchema, NAME_MAX_LENGTH } from "../model/form-schema";
   import { Input, MaskedInput } from "@/shared/ui/input";
   import { Field, FieldLabel, FieldError } from "@/shared/ui/field";
 
@@ -59,7 +59,6 @@
 
     const metricValue = button.dataset.metric;
     metric = metricValue ?? "";
-    console.log(metric);
   };
 </script>
 
@@ -83,6 +82,7 @@
           id={field.name}
           type="text"
           placeholder="Имя"
+          maxlength={NAME_MAX_LENGTH}
           value={field.state.value}
           onblur={() => field.handleBlur()}
           oninput={(e: Event) => {

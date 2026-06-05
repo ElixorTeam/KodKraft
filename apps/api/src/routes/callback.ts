@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { check, object, optional, pipe, string } from "valibot";
+import { check, nonEmpty, maxLength, object, optional, pipe, string } from "valibot";
 import { vValidator } from "@hono/valibot-validator";
 import parsePhoneNumberFromString from "libphonenumber-js";
 import { checkIsValidPhone } from "../utils/phone";
@@ -9,7 +9,7 @@ import type { CallbackPayload } from "../services/notification/types";
 const app = new Hono();
 
 const callbackSchema = object({
-  name: string(),
+  name: pipe(string(), nonEmpty(), maxLength(16)),
   phone: pipe(
     string(),
     check((phone) => {
