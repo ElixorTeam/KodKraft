@@ -22,7 +22,7 @@ import { Rating } from "@/shared/ui/rating";
           <CardHeader class="w-full overflow-hidden">
             <div class="flex w-full items-center gap-2 overflow-hidden">
               <div class="flex min-w-0 flex-1 items-center gap-2">
-                <div class="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary text-white">
+                <div class="select-none flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary text-white  ">
                   {item.name.at(0)}
                 </div>
                 <div class="flex flex-col overflow-hidden">
@@ -33,7 +33,7 @@ import { Rating } from "@/shared/ui/rating";
               <Rating value={item.rating} />
             </div>
           </CardHeader>
-          <CardContent class="px-6 text-sm">{item.description}</CardContent>
+          <CardContent class="px-6 text-sm line-clamp-4">{item.description}</CardContent>
         </Card>
       </div>
     ))

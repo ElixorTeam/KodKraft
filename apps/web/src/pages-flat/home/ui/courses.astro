@@ -21,7 +21,17 @@ import {
 ---
 
 <Carousel class="w-full">
-  <CarouselContent class="mr-4 px-4 sm:mr-px sm:pl-px">
+
+  <div class="mt-10 flex gap-3 px-4 sm:px-0">
+    <CarouselPrev class="static size-10">
+      <PixelChevronIcon class="size-4 rotate-180" slot="icon" />
+    </CarouselPrev>
+    <CarouselNext class="static size-10">
+      <PixelChevronIcon class="size-4" slot="icon" />
+    </CarouselNext>
+  </div>
+
+  <CarouselContent class="mr-4 px-4 sm:mr-px sm:pl-px select-none">
     {
       courses.map((item) => (
         <CarouselItem class="basis-52 py-1 md:basis-64 xl:basis-80">
@@ -77,13 +87,4 @@ import {
       ))
     }
   </CarouselContent>
-
-  <div class="mt-10 hidden gap-3 sm:flex">
-    <CarouselPrev class="static size-10">
-      <PixelChevronIcon class="size-4 rotate-180" slot="icon" />
-    </CarouselPrev>
-    <CarouselNext class="static size-10">
-      <PixelChevronIcon class="size-4" slot="icon" />
-    </CarouselNext>
-  </div>
 </Carousel>
