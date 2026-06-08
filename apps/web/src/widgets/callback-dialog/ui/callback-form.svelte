@@ -129,7 +129,7 @@
   <div class="flex flex-col gap-2 mt-6 md:mt-10">
     <button
       type="submit"
-      class="bg-primary text-primary-foreground font-semibold rounded-sm h-9 text-sm"
+      class="bg-primary text-primary-foreground font-semibold rounded-sm h-9 text-sm select-none"
     >
       Отправить
     </button>

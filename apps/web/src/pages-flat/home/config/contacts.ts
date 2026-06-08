@@ -13,7 +13,7 @@ const contacts = {
   max: "https://max.ru/id332908581520_biz",
   phone: parsePhoneNumberWithError("+79209004445", "RU"),
   yandexMap: "https://yandex.com/maps/-/CPukiIOS",
-  fio: "Александров Д.Д",
+  fio: "Александров Даниил Дмитриевич",
   inn: "332908581520",
   ogrnip: "325330000066328"
 };
