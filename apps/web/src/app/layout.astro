@@ -14,13 +14,27 @@ const description =
 
 const keywords = [
   "кодкрафт",
+  "кодкрафт33",
+  "kodkraft33",
+  "kodkraft",
   "школа программирования",
   "курсы программирования",
-  "Python",
-  "JavaScript",
-  "дети",
+  "обучение программированию",
+  "программирование для детей",
+  "программирование для школьников",
+  "Python для детей",
+  "C# для детей",
+  "Scratch программирование",
   "web-разработка",
-  "робототехника"
+  "IT курсы",
+  "обучение IT",
+  "программирование с нуля",
+  "детские курсы программирования",
+  "уроки программирования онлайн",
+  "офлайн курсы программирования",
+  "индивидуальные занятия программированием",
+  "групповые занятия программированием",
+  "курсы программирования Владимир"
 ];
 
 const education: EducationalOrganization = {
@@ -70,6 +84,7 @@ const webpage: WebPage = {
   name: title,
   description: description,
   url: import.meta.env.SITE,
+  image: `${import.meta.env.SITE}/og-image.webp`,
   inLanguage: "ru",
   isPartOf: {
     "@type": "WebSite",
@@ -91,39 +106,36 @@ const graph: Graph = {
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <!-- Яндекс.Вебмастер -->
+    <!--<meta name="yandex-verification" content="ef5c375d86ba34a4" />-->
+
+    <Seo
+        title={title}
+        description={description}
+        keywords={keywords}
+        icon="/favicon.ico"
+        robots="index, follow"
+        colorScheme="light"
+        themeColor="#ff4500"
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Font cssVariable="--font-wix" preload />
 
-    <Seo
-      title={title}
-      description={description}
-      keywords={keywords}
-      icon="/favicon.ico"
-      robots="index, follow"
-      colorScheme="light"
-      themeColor="#ff4500"
-    />
-
     <!-- JSON-LD -->
     <Schema item={graph} />
 
-    <!-- Яндекс.Вебмастер -->
-    <meta name="yandex-verification" content="ef5c375d86ba34a4" />
-
     <!-- Яндекс.Метрика -->
     {
-      import.meta.env.PROD && (
-        <YandexMetrika
-          counterId={107232679}
-          ecommerce="dataLayer"
-          webvisor
-          lazy
-        />
-      )
+      // import.meta.env.PROD && (
+      //   <YandexMetrika
+      //     counterId={109710042}
+      //     ecommerce="dataLayer"
+      //     webvisor
+      //     lazy
+      //   />
+      // )
     }
   </head>
   <body>
