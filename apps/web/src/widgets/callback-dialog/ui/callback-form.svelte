@@ -57,8 +57,8 @@
     const button = findDialogButton(event.target);
     if (!button) return;
 
-    const metricValue = button.dataset.metric;
-    metric = metricValue ?? "";
+    metric = button.dataset.metric ?? "";
+    form.reset();
   };
 </script>
 
