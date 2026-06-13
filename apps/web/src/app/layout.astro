@@ -64,7 +64,7 @@ const education: EducationalOrganization = {
   ],
   image: {
     "@type": "ImageObject",
-    url: `${import.meta.env.SITE}/og-image.webp`,
+    url: `${import.meta.env.SITE}/og-image.jpg`,
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -90,7 +90,7 @@ const webpage: WebPage = {
   url: import.meta.env.SITE,
   image: {
     "@type": "ImageObject",
-    url: `${import.meta.env.SITE}/og-image.webp`,
+    url: `${import.meta.env.SITE}/og-image.jpg`,
   },
   inLanguage: "ru",
   isPartOf: {
@@ -129,10 +129,14 @@ const graph: Graph = {
         colorScheme="light"
         themeColor="#ff4500"
     />
+
+    <meta property="og:site_name" content="КодКрафт">
+    <meta property="og:url" content={import.meta.env.SITE}>
+    <meta property="og:image" content={`${import.meta.env.SITE}/og-image.jpg`} />
+
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Font cssVariable="--font-wix" preload />
-    <meta property="og:url" content={import.meta.env.SITE}>
-    <meta property="og:image" content={`${import.meta.env.SITE}/og-image.webp`} />
+
 
     <!-- JSON-LD -->
     <Schema item={graph} />
