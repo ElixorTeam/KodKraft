@@ -113,8 +113,7 @@ const graph: Graph = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <!-- Яндекс.Вебмастер -->
-    <meta name="yandex-verification" content="4d0c735452a87c36" />
+
 
     <Seo
         title={title}
@@ -138,16 +137,18 @@ const graph: Graph = {
     <!-- JSON-LD -->
     <Schema item={graph} />
 
-    <!-- Яндекс.Метрика -->
     {
-      import.meta.env.PROD && (
-        <YandexMetrika
-          counterId={109710042}
-          ecommerce="dataLayer"
-          webvisor
-          lazy
-        />
-      )
+        import.meta.env.PROD && (
+            <!-- Яндекс.Вебмастер -->
+            <meta name="yandex-verification" content="4655abbfbf37ec25" />
+            <!-- Яндекс.Метрика -->
+            <YandexMetrika
+                counterId={109849817}
+                ecommerce="dataLayer"
+                webvisor
+                lazy
+            />
+        )
     }
   </head>
   <body>
