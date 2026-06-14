@@ -2,7 +2,7 @@
 import SocialTelegramIcon from "@/shared/assets/socials/telegram.svg";
 import SocialVKIcon from "@/shared/assets/socials/vk.svg";
 import SocialMaxIcon from "@/shared/assets/socials/max.svg";
-import { contacts, formatPhone } from "@/pages-flat/home/config/contacts";
+import { contacts, formatAddress, formatPhone } from "@/pages-flat/home/config/contacts";
 import { Button } from "@/shared/ui/button";
 ---
 
@@ -11,6 +11,7 @@ import { Button } from "@/shared/ui/button";
 >
   <div class="w-full overflow-hidden">
     <iframe
+      title="КодКрафт на карте"
       src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=199523154716"
       width="672"
       height="336"
@@ -22,108 +23,96 @@ import { Button } from "@/shared/ui/button";
   <div class="flex flex-col gap-4 lg:gap-8">
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-8">
       <div class="flex flex-col gap-4">
-        <div class="text-2xl font-semibold">Контакты</div>
-
-      {
-        contacts["phone"] && (
-          <div class="space-y-0.5">
-            <div class="text-muted-foreground">Номер телефона</div>
+        <h3 class="text-2xl font-semibold">Контакты</h3>
+         <div class="space-y-0.5">
+            <p class="text-muted-foreground">Телефон</p>
             <Button
-              href={contacts["phone"].getURI()}
-              variant="link"
-              class="h-fit p-0 text-base whitespace-normal"
+                href={contacts.phone.getURI()}
+                variant="link"
+                class="h-fit p-0 text-base whitespace-normal"
             >
-              {formatPhone(contacts["phone"])}
+              {formatPhone(contacts.phone)}
             </Button>
           </div>
-        )
-      }
-    </div>
-
-    <div class="flex flex-col gap-4">
-      <div class="text-2xl font-semibold">Офис</div>
-
-      <div class="space-y-0.5">
-        <div class="text-muted-foreground">Адрес</div>
-        <Button
-          href={contacts["yandexMap"] ?? "#"}
-          variant="link"
-          class="h-fit p-0 text-base whitespace-normal"
-          target="_blank"
-        >
-          г. Владимир, ул. Чехова, 5 этаж 2
-        </Button>
       </div>
 
-      <div class="space-y-0.5">
-        <div class="text-muted-foreground">Режим работы</div>
-        <div>пн-вс: 9:00 - 21:00</div>
-      </div>
-    </div>
+      <div class="flex flex-col gap-4">
+        <h3 class="text-2xl font-semibold">Офис</h3>
 
-    <div class="flex flex-col gap-4">
-      <div class="text-2xl font-semibold">Социальные сети</div>
-      {
-        contacts["vk"] && (
-          <Button
-            href={contacts["vk"]}
-            variant="link"
-            class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
-            target="_blank"
-          >
-            <SocialVKIcon class="size-6" />
-            Вконтакте
-          </Button>
-        )
-      }
-      {
-        contacts["max"] && (
-          <Button
-            href={contacts["max"]}
-            variant="link"
-            class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
-            target="_blank"
-          >
-            <SocialMaxIcon class="size-6" />
-            Max (канал)
-          </Button>
-        )
-      }
-      {
-        contacts["telegram"] && (
-          <Button
-            href={contacts["telegram"]}
-            variant="link"
-            class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
-            target="_blank"
-          >
-            <SocialTelegramIcon class="size-6" />
-            Телеграм (канал)
-          </Button>
-        )
-      }
-    </div>
-  </div>
+        <address class="space-y-4 not-italic">
+          <div class="space-y-0.5">
+            <p class="text-muted-foreground">Адрес</p>
+            <a
+              href={contacts.yandexMap}
+              class="text-base underline-offset-4 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {formatAddress()}
+            </a>
+          </div>
 
-  <div class="flex w-full flex-col gap-4">
-    <div class="text-2xl font-semibold">Реквизиты ИП</div>
-
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-8">
-      <div class="space-y-0.5">
-        <div class="text-muted-foreground">ФИО</div>
-        <div>{contacts["fio"]}</div>
+          <div class="space-y-0.5">
+            <p class="text-muted-foreground">Режим работы</p>
+            <time datetime="Mo-Su 09:00-21:00">{contacts.openingHours}</time>
+          </div>
+        </address>
       </div>
 
-      <div class="space-y-0.5">
-        <div class="text-muted-foreground">ИНН</div>
-        <div>{contacts["inn"]}</div>
-      </div>
-
-      <div class="space-y-0.5">
-        <div class="text-muted-foreground">ОГРН/ОГРНИП</div>
-        <div>{contacts["ogrnip"]}</div>
+      <div class="flex flex-col gap-4">
+        <h3 class="text-2xl font-semibold">Социальные сети</h3>
+            <Button
+              href={contacts.vk}
+              variant="link"
+              class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SocialVKIcon class="size-6" aria-hidden="true" />
+              Вконтакте
+            </Button>
+            <Button
+              href={contacts.max}
+              variant="link"
+              class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SocialMaxIcon class="size-6" aria-hidden="true" />
+              Max (канал)
+            </Button>
+            <Button
+              href={contacts.telegram}
+              variant="link"
+              class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SocialTelegramIcon class="size-6" aria-hidden="true" />
+              Телеграм (канал)
+            </Button>
       </div>
     </div>
-  </div>
+
+    <div class="flex w-full flex-col gap-4">
+      <h3 class="text-2xl font-semibold">Реквизиты ИП</h3>
+
+      <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-8">
+        <div class="space-y-0.5">
+          <dt class="text-muted-foreground">ФИО</dt>
+          <dd>{contacts.fio}</dd>
+        </div>
+
+        <div class="space-y-0.5">
+          <dt class="text-muted-foreground">ИНН</dt>
+          <dd>{contacts.inn}</dd>
+        </div>
+
+        <div class="space-y-0.5">
+          <dt class="text-muted-foreground">ОГРН/ОГРНИП</dt>
+          <dd>{contacts.ogrnip}</dd>
+        </div>
+      </dl>
+    </div>
   </div>
 </div>

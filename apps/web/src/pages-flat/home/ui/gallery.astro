@@ -12,12 +12,12 @@ import { Image } from "astro:assets";
     gallery.map((image, index) => (
       <a
         data-fancybox="gallery"
-        href={image.src}
+        href={image.img.src}
         class={cn("aspect-square", index % 5 === 0 && "col-span-2 row-span-2")}
       >
         <Image
-          src={image}
-          alt="Фото с уроков"
+          src={image.img}
+          alt={image.alt}
           class="h-full w-full rounded-lg object-cover"
           loading="lazy"
           width={index % 5 === 0 ? 800 : 400}

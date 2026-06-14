@@ -48,17 +48,16 @@ import Ghost from "@/shared/assets/ghost.webp";
     >
       <div class="space-y-4">
         <Badge variant="outline" class="bg-background">
-          <div class="mr-1 size-1.5 rounded-full bg-primary"></div>
-          Доступны <span class="font-bold">новые</span> программы обучения
+          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true"></div>
+          Набор на <span class="font-bold">новый учебный год</span> открыт
         </Badge>
-        <h2 class="text-3xl font-semibold md:text-5xl lg:text-7xl">
+        <h1 class="text-3xl font-semibold md:text-5xl lg:text-7xl">
           Научим ваших детей программировать
-        </h2>
+        </h1>
       </div>
 
       <p class="mx-auto max-w-xl text-muted-foreground md:text-xl">
-        Мы не просто учим писать код — мы помогаем развить интерес к технологиям, чтобы ребёнку было проще и интереснее
-        разбираться в мире технологий, которые уже стали частью повседневной жизни.
+        Занятия в г. Владимир или онлайн —  мы не просто учим писать код, мы помогаем развить интерес к технологиям, которые уже стали частью повседневной жизни.
       </p>
 
       <DialogTrigger
@@ -75,34 +74,53 @@ import Ghost from "@/shared/assets/ghost.webp";
       <Image
         src={Mario}
         alt=""
+        aria-hidden="true"
         class="absolute -bottom-24 left-8 hidden h-64 w-32 -rotate-10 object-contain lg:block select-none"
       />
 
       <Image
         src={Ghost}
         alt=""
+        aria-hidden="true"
         class="absolute -top-24 right-4 hidden h-56 w-28 -scale-x-100 -rotate-10 object-contain lg:block select-none"
       />
     </div>
   </section>
 
-  <Reviews />
+  <Section id="reviews" aria-labelledby="reviews-title">
+    <SectionHeader variant="center">
+      <SectionTitle id="reviews-title">Отзывы учеников и родителей</SectionTitle>
+      <SectionDescription>
+        Реальные истории тех, кто уже учится у нас — от первых игр в Scratch
+        до подготовки к экзаменам.
+      </SectionDescription>
+    </SectionHeader>
 
-  <Section>
+    <SectionContent class="px-0">
+      <Reviews />
+    </SectionContent>
+  </Section>
+
+  <Section id="courses" aria-labelledby="courses-title">
     <div class="w-full">
       <SectionHeader>
         <div class="space-y-2">
           <Badge variant="outline">
-            <div class="mr-1 size-1.5 rounded-full bg-primary"></div>
+            <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true"></div>
             Курсы
           </Badge>
-          <SectionTitle>Программы обучения</SectionTitle>
+          <SectionTitle id="courses-title">Программы обучения</SectionTitle>
         </div>
 
-        <SectionDescription>
-          Программы разработаны преподавателями с опытом в IT.
-          Мы умеем работать с детьми и объясняем материал просто и в спокойном темпе.
-          Занятия проходят в течение учебного года — 4 урока в месяц. Можно учиться онлайн или офлайн, в группе или индивидуально.
+        <SectionDescription class="space-y-4">
+          <p>
+            Несколько направлений для разного возраста и уровня. Программы выстроены поэтапно: можно начать с нуля и постепенно
+            переходить на следующий курс, когда будете готовы.
+          </p>
+          <p>
+            Занятия идут весь учебный год — от четырёх уроков в месяц, в спокойном темпе и с упором на практику. Формат на выбор: небольшая группа или индивидуально, в классе или
+            онлайн. Подберём расписание под ваш график.
+          </p>
         </SectionDescription>
       </SectionHeader>
 
@@ -112,7 +130,7 @@ import Ghost from "@/shared/assets/ghost.webp";
     </div>
   </Section>
 
-  <Section>
+  <Section aria-labelledby="cta-title">
     <SectionContent>
       <div class="relative w-full rounded-xl p-8 md:p-16">
         <div
@@ -121,13 +139,13 @@ import Ghost from "@/shared/assets/ghost.webp";
         </div>
 
         <div class="relative z-20 w-full max-w-xl space-y-4">
-          <h3 class="text-2xl font-semibold text-white md:text-4xl">
-            Хотите узнать, как проходят наши занятия?
-          </h3>
+          <h2 id="cta-title" class="text-2xl font-semibold text-white md:text-4xl">
+            Попробуйте бесплатно
+          </h2>
 
           <p class="text-white md:text-xl">
-            Приглашаем на бесплатный пробный урок — познакомимся, проведём
-            практическое занятие и ответим на все ваши вопросы.
+            Приходите на пробный урок: познакомимся, дадим поработать за
+            компьютером и ответим на вопросы о расписании и программах.
           </p>
 
           <DialogTrigger
@@ -136,7 +154,7 @@ import Ghost from "@/shared/assets/ghost.webp";
             asChild
           >
             <Button class="mt-4 font-semibold">
-              Записаться
+              Записаться на пробный урок
               <PixelChevronIcon />
             </Button>
           </DialogTrigger>
@@ -145,7 +163,7 @@ import Ghost from "@/shared/assets/ghost.webp";
         <div class="absolute inset-0 -z-10 select-none">
           <Image
             src={CtaBG}
-            alt=""
+            alt="Пробный урок — дети за компьютерами"
             class="h-full w-full rounded-xl object-cover"
           />
         </div>
@@ -153,16 +171,18 @@ import Ghost from "@/shared/assets/ghost.webp";
     </SectionContent>
   </Section>
 
-  <Section>
+  <Section id="gallery" aria-labelledby="gallery-title">
     <SectionHeader variant="center">
       <div class="space-y-2">
-        <Badge variant="outline">Галлерея</Badge>
-        <SectionTitle>Моменты занятий</SectionTitle>
+        <Badge variant="outline">Галерея</Badge>
+        <SectionTitle id="gallery-title">Моменты с занятий</SectionTitle>
       </div>
 
       <SectionDescription>
-        Живые кадры с наших занятий: дети учатся программировать, работают над
-        проектами и открывают для себя мир технологий.
+        Живые кадры с занятий: ребята пишут код, тестируют свои проекты и
+        обсуждают идеи с преподавателем. Здесь видно, как проходят уроки на
+        самом деле — без постановки, в спокойном темпе и с тем самым
+        интересом, ради которого дети возвращаются снова.
       </SectionDescription>
     </SectionHeader>
 
@@ -189,12 +209,17 @@ import Ghost from "@/shared/assets/ghost.webp";
     </SectionContent>
   </Section> -->
 
-  <Section>
+  <Section id="contacts" aria-labelledby="contacts-title">
     <SectionHeader variant="center">
       <div class="space-y-2">
         <Badge variant="outline">Контакты</Badge>
-        <SectionTitle>Связаться с нами</SectionTitle>
+        <SectionTitle id="contacts-title">Как с нами связаться</SectionTitle>
       </div>
+
+      <SectionDescription>
+        Позвоните или напишите в соцсетях — расскажем о курсах, формате
+        занятий и запишем на бесплатный пробный урок, когда вам удобно.
+      </SectionDescription>
     </SectionHeader>
 
     <SectionContent>

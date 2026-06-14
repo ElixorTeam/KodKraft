@@ -10,16 +10,46 @@ import GalleryImage9 from "@/shared/assets/gallery/gallery-9.webp";
 import GalleryImage10 from "@/shared/assets/gallery/gallery-10.webp";
 
 const gallery = [
-  GalleryImage1,
-  GalleryImage2,
-  GalleryImage3,
-  GalleryImage4,
-  GalleryImage5,
-  GalleryImage6,
-  GalleryImage7,
-  GalleryImage8,
-  GalleryImage9,
-  GalleryImage10
+  {
+    img: GalleryImage1,
+    alt: "Групповое занятие — дети за компьютерами"
+  },
+  {
+    img: GalleryImage2,
+    alt: "Урок Scratch — ребёнок создаёт игру"
+  },
+  {
+    img: GalleryImage3,
+    alt: "Практика по Python в группе учеников"
+  },
+  {
+    img: GalleryImage4,
+    alt: "Преподаватель помогает ученику с кодом"
+  },
+  {
+    img: GalleryImage5,
+    alt: "Работа над проектом на уроке"
+  },
+  {
+    img: GalleryImage6,
+    alt: "Учебный класс с рабочими местами"
+  },
+  {
+    img: GalleryImage7,
+    alt: "Дети за компьютерами во время урока"
+  },
+  {
+    img: GalleryImage8,
+    alt: "Совместная работа учеников над программой"
+  },
+  {
+    img: GalleryImage9,
+    alt: "Занятие по разработке игр"
+  },
+  {
+    img: GalleryImage10,
+    alt: "Урок — ученики и преподаватель"
+  }
 ];
 
 export { gallery };

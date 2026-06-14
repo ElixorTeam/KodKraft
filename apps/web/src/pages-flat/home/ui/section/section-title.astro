@@ -2,15 +2,15 @@
 import type { HTMLAttributes } from "astro/types";
 import { cn } from "@/shared/utils/cn";
 
-type Props = HTMLAttributes<"div">;
+type Props = HTMLAttributes<"h2">;
 
 const { class: className, ...rest } = Astro.props;
 ---
 
-<div
+<h2
   data-slot="section-title"
   class={cn("text-2xl font-semibold md:text-3xl lg:text-4xl", className)}
   {...rest}
 >
   <slot />
-</div>
+</h2>

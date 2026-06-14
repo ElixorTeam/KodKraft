@@ -81,7 +81,7 @@
         <Input
           id={field.name}
           type="text"
-          placeholder="Имя"
+          placeholder="Как к вам обращаться?"
           maxlength={NAME_MAX_LENGTH}
           value={field.state.value}
           onblur={() => field.handleBlur()}
@@ -131,10 +131,10 @@
       type="submit"
       class="bg-primary text-primary-foreground font-semibold rounded-sm h-9 text-sm select-none"
     >
-      Отправить
+      Отправить заявку
     </button>
     <p class="text-xs text-muted-foreground">
-      Нажимая «Отправить», вы соглашаетесь с
+      Нажимая «Отправить заявку», вы соглашаетесь с
       <a
         href="/policy"
         class="underline underline-offset-4"

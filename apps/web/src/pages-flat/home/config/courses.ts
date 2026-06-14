@@ -8,11 +8,11 @@ const courses = [
   {
     imageSrc: CourseImage2,
     name: "Scratch",
-    group: "7-10 лет",
+    group: "7–10 лет",
     price: 5000,
     metric: "course-scratch",
     description:
-        "Создаём простые игры и анимации в визуальной среде. Ребёнок учится логике, последовательности действий и основам программирования."
+      "Визуальное программирование: собираем игры и анимации из блоков. Ребёнок понимает логику, циклы и условия — без страха перед «настоящим» кодом."
   },
   {
     imageSrc: CourseImage1,
@@ -21,7 +21,7 @@ const courses = [
     price: 5000,
     metric: "course-python",
     description:
-        "Изучаем основы программирования на Python, создаём первые программы и простые приложения, развивая мышление разработчика."
+      "Первый язык: пишем программы, скрипты и простые приложения. Учимся думать как разработчик и решать задачи по шагам."
   },
   {
     imageSrc: CourseImage4,
@@ -30,7 +30,7 @@ const courses = [
     price: 5000,
     metric: "course-pygame",
     description:
-        "Создаём 2D-игры на Python, изучаем игровую логику, управление персонажами и базовые принципы геймдизайна."
+      "Делаем 2D-игры на Python: персонажи, столкновения, счёт. Закрепляем основы языка через то, что детям действительно интересно."
   },
   {
     imageSrc: CourseImage5,
@@ -39,7 +39,7 @@ const courses = [
     price: 5000,
     metric: "course-godot",
     description:
-        "Разрабатываем игры на движке Godot. Учимся работать со сценами, логикой игры и базовыми игровыми механиками."
+      "Собираем игры на движке Godot: сцены, скрипты, механики. Шаг к профессиональным инструментам геймдева."
   },
   {
     imageSrc: CourseImage3,
@@ -48,8 +48,33 @@ const courses = [
     price: 5000,
     metric: "course-csharp",
     description:
-        "Изучаем C# и основы современной разработки. Создаём небольшие проекты и учимся писать структурированный код."
-  },
+      "Основы C# и структурированный код. Небольшие проекты и привычка писать аккуратно — хорошая база для дальнейшего обучения."
+  }
 ];
 
-export { courses };
+const buildCoursesOfferCatalog = (organizationId: string) => ({
+  "@type": "OfferCatalog" as const,
+  name: "Курсы программирования",
+  itemListElement: courses.map((item) => ({
+    "@type": "Course" as const,
+    name: item.name,
+    description: item.description,
+    courseMode: ["onsite", "online"] as const,
+    provider: {
+      "@id": organizationId
+    },
+    offers: {
+      "@type": "Offer" as const,
+      price: item.price,
+      priceCurrency: "RUB",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification" as const,
+        price: item.price,
+        priceCurrency: "RUB",
+        unitText: "месяц"
+      }
+    }
+  }))
+});
+
+export { buildCoursesOfferCatalog, courses };

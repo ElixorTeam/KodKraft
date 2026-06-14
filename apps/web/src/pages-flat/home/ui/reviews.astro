@@ -1,13 +1,12 @@
 ---
 import {
   Card,
-  CardTitle,
   CardDescription,
   CardHeader,
   CardContent
 } from "@/shared/ui/card";
 import { Marquee } from "@/shared/ui/marquee";
-import { reviews } from "../config/reviews";
+import { formatReviewDate, reviews } from "../config/reviews";
 import { Rating } from "@/shared/ui/rating";
 ---
 
@@ -26,8 +25,8 @@ import { Rating } from "@/shared/ui/rating";
                   {item.name.at(0)}
                 </div>
                 <div class="flex flex-col overflow-hidden">
-                  <CardTitle class="truncate">{item.name}</CardTitle>
-                  <CardDescription>{item.date}</CardDescription>
+                  <p class="truncate font-medium">{item.name}</p>
+                  <CardDescription>{formatReviewDate(item.publishedAt)}</CardDescription>
                 </div>
               </div>
               <Rating value={item.rating} />

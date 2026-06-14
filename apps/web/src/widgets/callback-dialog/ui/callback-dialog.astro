@@ -13,12 +13,13 @@ import KodKraftMiniLogo from "@/shared/assets/mini-logo.svg";
     <div class="grid grid-cols-1 p-3 md:h-160 md:grid-cols-2">
       <div class="relative hidden size-full overflow-hidden md:block">
         <Image
+          alt=""
           src={AbstractBackground}
-          alt="Abstract Background"
+          aria-hidden="true"
           class="size-full rounded-sm object-cover select-none"
         />
 
-        <KodKraftMiniLogo class="absolute top-6 left-8 h-9 fill-white" />
+        <KodKraftMiniLogo class="absolute top-6 left-8 h-9 fill-white" aria-hidden="true" />
 
         <div class="absolute bottom-0 p-8 text-white">
           <span class="block pb-2">Попробуйте уже завтра</span>
@@ -32,13 +33,13 @@ import KodKraftMiniLogo from "@/shared/assets/mini-logo.svg";
       <div class="items-center justify-center sm:flex sm:p-10">
         <div class="w-full space-y-3">
           <DialogTitle class="font-medium sm:text-3xl">
-            Есть вопросы?<br />
-            <span class="font-semibold">Оставьте заявку сейчас.</span>
+            Остались вопросы?<br />
+            <span class="font-semibold">Оставьте заявку</span>
           </DialogTitle>
 
           <p class="text-sm text-muted-foreground md:pb-4">
-            Обсудим программы обучения, время занятий, срок обучения и
-            стоимость.
+            Расскажем о курсах, формате занятий и стоимости — и подберём
+            расписание.
           </p>
 
           <CallbackForm client:only="svelte" />
@@ -51,9 +52,8 @@ import KodKraftMiniLogo from "@/shared/assets/mini-logo.svg";
   <DialogContent class="text-foreground">
     <div class="flex flex-col gap-3">
       <div class="text-center text-2xl font-medium">Заявка отправлена!</div>
-
       <div class="text-center text-sm text-muted-foreground">
-        В ближайшее время с вами свяжется наш менеджер.
+        Мы свяжемся с вами в ближайшее время.
       </div>
     </div>
   </DialogContent>

@@ -12,12 +12,7 @@ import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { DialogTrigger } from "@/shared/ui/dialog";
 import { courses } from "../config/courses";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle
-} from "@/shared/ui/card";
+import { Card, CardContent, CardDescription } from "@/shared/ui/card";
 ---
 
 <Carousel class="w-full">
@@ -40,7 +35,7 @@ import {
               <div class="relative aspect-square w-full overflow-hidden rounded-lg">
                 <Image
                   src={item.imageSrc}
-                  alt={item.name}
+                  alt={`Курс «${item.name}», ${item.group}`}
                   class="size-full object-cover"
                   width={400}
                   height={400}
@@ -55,7 +50,9 @@ import {
               </div>
 
               <div class="space-y-1 py-2">
-                <CardTitle>{item.name}</CardTitle>
+                <h3 class="font-heading text-base leading-snug font-medium">
+                  {item.name}
+                </h3>
                 <CardDescription>{item.description}</CardDescription>
               </div>
 

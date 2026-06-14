@@ -4,13 +4,17 @@ import { Seo } from "astro-seo-meta";
 import { Font } from "astro:assets";
 import { Schema } from "astro-seo-schema";
 import { contacts, formatPhone } from "@/pages-flat/home/config/contacts";
-import { courses } from "@/pages-flat/home/config/courses";
+import { buildCoursesOfferCatalog } from "@/pages-flat/home/config/courses";
+import { buildReviewsSchema } from "@/pages-flat/home/config/reviews";
 import type { EducationalOrganization, Graph, WebPage } from "schema-dts";
 import "./styles.css";
 
-const title = "КодКрафт – школа программирования для детей и подростков во Владимире";
+const site = import.meta.env.SITE;
+const organizationId = `${site}#organization`;
+
+const title = "КодКрафт — курсы программирования для детей во Владимире";
 const description =
-    "Курсы по Python, C#, Scratch, web-разработке и гейм-разработке. Обучаем программированию с нуля онлайн и во Владимире, помогаем развивать интерес к технологиям и делать первые проекты.";
+    "Научим детей программировать с нуля через практику и свои проекты. Офлайн во Владимире и онлайн по всей России. Первый урок бесплатно. Работаем с 2018.";
 
 const keywords = [
   "кодкрафт",
@@ -24,8 +28,10 @@ const keywords = [
   "программирование для школьников",
   "Python для детей",
   "C# для детей",
-  "Scratch программирование",
-  "web-разработка",
+  "Scratch для детей",
+  "Pygame",
+  "Godot для детей",
+  "геймдев для детей",
   "IT курсы",
   "обучение IT",
   "программирование с нуля",
@@ -37,8 +43,11 @@ const keywords = [
   "курсы программирования Владимир"
 ];
 
+const reviewsSchema = buildReviewsSchema(organizationId);
+
 const education: EducationalOrganization = {
   "@type": "EducationalOrganization",
+  "@id": organizationId,
   name: "КодКрафт",
   description: description,
   telephone: formatPhone(contacts.phone),
@@ -46,9 +55,9 @@ const education: EducationalOrganization = {
   foundingDate: "2018",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "ул. Чехова, 5",
-    addressLocality: "Владимир",
-    postalCode: "600006",
+    streetAddress: contacts.address.streetAddress,
+    addressLocality: contacts.address.locality,
+    postalCode: contacts.address.postalCode,
     addressCountry: "RU"
   },
   geo: {
@@ -64,43 +73,30 @@ const education: EducationalOrganization = {
   ],
   image: {
     "@type": "ImageObject",
-    url: `${import.meta.env.SITE}/og-image.jpg`,
+    url: `${site}/og-image.jpg`,
   },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Курсы программирования",
-    itemListElement: courses.map((item) => {
-      return {
-        "@type": "Course",
-        name: item.name,
-        description: item.description,
-        provider: {
-          "@type": "Organization",
-          name: "КодКрафт"
-        }
-      };
-    })
-  }
+  aggregateRating: reviewsSchema.aggregateRating,
+  review: reviewsSchema.review,
+  hasOfferCatalog: buildCoursesOfferCatalog(organizationId)
 };
 
 const webpage: WebPage = {
   "@type": "WebPage",
   name: title,
   description: description,
-  url: import.meta.env.SITE,
+  url: site,
   image: {
     "@type": "ImageObject",
-    url: `${import.meta.env.SITE}/og-image.jpg`,
+    url: `${site}/og-image.jpg`,
   },
   inLanguage: "ru",
   isPartOf: {
     "@type": "WebSite",
     name: "КодКрафт",
-    url: import.meta.env.SITE
+    url: site
   },
   about: {
-    "@type": "EducationalOrganization",
-    name: "КодКрафт"
+    "@id": organizationId
   }
 };
 
@@ -130,9 +126,10 @@ const graph: Graph = {
         themeColor="#ff4500"
     />
 
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="КодКрафт">
-    <meta property="og:url" content={import.meta.env.SITE}>
-    <meta property="og:image" content={`${import.meta.env.SITE}/og-image.jpg`} />
+    <meta property="og:url" content={site}>
+    <meta property="og:image" content={`${site}/og-image.jpg`} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Font cssVariable="--font-wix" preload />
