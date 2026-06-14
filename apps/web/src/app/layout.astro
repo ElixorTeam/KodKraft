@@ -114,7 +114,7 @@ const graph: Graph = {
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
     <!-- Яндекс.Вебмастер -->
-    <!--<meta name="yandex-verification" content="ef5c375d86ba34a4" />-->
+    <meta name="yandex-verification" content="a433bb14a9c78484" />
 
     <Seo
         title={title}
@@ -140,14 +140,14 @@ const graph: Graph = {
 
     <!-- Яндекс.Метрика -->
     {
-      // import.meta.env.PROD && (
-      //   <YandexMetrika
-      //     counterId={109710042}
-      //     ecommerce="dataLayer"
-      //     webvisor
-      //     lazy
-      //   />
-      // )
+      import.meta.env.PROD && (
+        <YandexMetrika
+          counterId={109710042}
+          ecommerce="dataLayer"
+          webvisor
+          lazy
+        />
+      )
     }
   </head>
   <body>
