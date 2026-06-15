@@ -3,25 +3,22 @@ import { YandexMetrika } from "astro-ym";
 import { Seo } from "astro-seo-meta";
 import { Font } from "astro:assets";
 import { Schema } from "astro-seo-schema";
-import { contacts, formatPhone } from "@/pages-flat/home/config/contacts";
+import { contacts } from "@/pages-flat/home/config/contacts";
 import { buildCoursesOfferCatalog } from "@/pages-flat/home/config/courses";
-import { buildReviewsSchema } from "@/pages-flat/home/config/reviews";
+import { openingHoursSpecification, school } from "@/pages-flat/home/config/school";
 import type { EducationalOrganization, Graph, WebPage } from "schema-dts";
 import "./styles.css";
 
 const site = import.meta.env.SITE;
 const organizationId = `${site}#organization`;
 
-const title = "КодКрафт — курсы программирования для детей во Владимире";
-const description =
-    "Научим детей программировать с нуля через практику и свои проекты. Офлайн во Владимире и онлайн по всей России. Первый урок бесплатно. Работаем с 2018.";
+const title = school.title;
+const description = school.description;
 
 const keywords = [
-  "кодкрафт",
-  "кодкрафт33",
-  "kodkraft33",
-  "kodkraft",
   "школа программирования",
+  "школа программирования Владимир",
+  "школа программирования для детей",
   "курсы программирования",
   "обучение программированию",
   "программирование для детей",
@@ -43,16 +40,16 @@ const keywords = [
   "курсы программирования Владимир"
 ];
 
-const reviewsSchema = buildReviewsSchema(organizationId);
-
 const education: EducationalOrganization = {
   "@type": "EducationalOrganization",
   "@id": organizationId,
-  name: "КодКрафт",
+  name: school.name,
+  alternateName: [...school.alternateNames],
+  url: site,
   description: description,
-  telephone: formatPhone(contacts.phone),
+  telephone: contacts.phone.format("E.164"),
   areaServed: "RU",
-  foundingDate: "2018",
+  foundingDate: String(school.foundingYear),
   address: {
     "@type": "PostalAddress",
     streetAddress: contacts.address.streetAddress,
@@ -65,7 +62,7 @@ const education: EducationalOrganization = {
     latitude: 56.134151,
     longitude: 40.415219
   },
-  openingHours: "Mo-Su 09:00-21:00",
+  openingHoursSpecification: [openingHoursSpecification],
   sameAs: [
     contacts.vk,
     contacts.telegram,
@@ -75,8 +72,6 @@ const education: EducationalOrganization = {
     "@type": "ImageObject",
     url: `${site}/og-image.jpg`,
   },
-  aggregateRating: reviewsSchema.aggregateRating,
-  review: reviewsSchema.review,
   hasOfferCatalog: buildCoursesOfferCatalog(organizationId)
 };
 
@@ -108,12 +103,8 @@ const graph: Graph = {
 
 <html lang="ru">
   <head>
-    <title>{title}</title>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-
-
 
     <Seo
         title={title}
@@ -126,9 +117,13 @@ const graph: Graph = {
     />
 
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="КодКрафт">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:site_name" content={school.name}>
     <meta property="og:url" content={site}>
+    <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content={`${site}/og-image.jpg`} />
+    <meta property="og:image:secure_url" content={`${site}/og-image.jpg`} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Font cssVariable="--font-wix" preload />
@@ -139,8 +134,6 @@ const graph: Graph = {
 
     {
         import.meta.env.PROD && (
-            <!-- Яндекс.Вебмастер -->
-            <meta name="yandex-verification" content="4655abbfbf37ec25" />
             <!-- Яндекс.Метрика -->
             <YandexMetrika
                 counterId={109849817}

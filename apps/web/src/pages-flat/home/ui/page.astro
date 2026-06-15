@@ -11,6 +11,7 @@ import ContactUs from "./contact-us.astro";
 // import Teachers from "./teachers.astro";
 import { Badge } from "@/shared/ui/badge";
 import Gallery from "./gallery.astro";
+import Faq from "./faq.astro";
 import CtaBG from "@/shared/assets/cta-bg.webp";
 import {
   Section,
@@ -101,6 +102,29 @@ import Ghost from "@/shared/assets/ghost.webp";
     </SectionContent>
   </Section>
 
+  <Section id="about" aria-labelledby="about-title">
+    <SectionHeader>
+      <div class="space-y-2">
+        <Badge variant="outline">
+          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true"></div>
+          О нас
+        </Badge>
+        <SectionTitle id="about-title">Обучаем программированию — с 2018 года</SectionTitle>
+      </div>
+
+      <SectionDescription class="space-y-4">
+        <p>
+          <strong>КодКрафт</strong> — школа, где программирование начинается с собственного
+          проекта: игры в Scratch или первой программы на Python.
+        </p>
+        <p>
+          Мы небольшая школа с живым темпом: замечаем, где ученик застрял, даём время разобраться и
+          поощряем проекты, которые хочется доработать уже после занятия. Так программирование становится увлечением, а не очередной нагрузкой
+        </p>
+      </SectionDescription>
+    </SectionHeader>
+  </Section>
+
   <Section id="courses" aria-labelledby="courses-title">
     <div class="w-full">
       <SectionHeader>
@@ -188,6 +212,22 @@ import Ghost from "@/shared/assets/ghost.webp";
 
     <SectionContent>
       <Gallery />
+    </SectionContent>
+  </Section>
+
+
+  <Section id="faq" aria-labelledby="faq-title">
+    <SectionHeader variant="center">
+      <div class="space-y-2">
+        <Badge variant="outline">FAQ</Badge>
+        <SectionTitle id="faq-title">Частые вопросы</SectionTitle>
+      </div>
+      <SectionDescription>
+        Коротко о возрасте, формате, цене и записи.
+      </SectionDescription>
+    </SectionHeader>
+    <SectionContent>
+      <Faq />
     </SectionContent>
   </Section>
 

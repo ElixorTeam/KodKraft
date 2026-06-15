@@ -80,40 +80,4 @@ const formatReviewDate = (publishedAt: string): string => {
     .join(" ");
 };
 
-const buildReviewsSchema = (organizationId: string) => {
-  const reviewCount = reviews.length;
-  const ratingValue =
-    reviewCount === 0
-      ? 0
-      : reviews.reduce((sum, item) => sum + item.rating, 0) / reviewCount;
-
-  return {
-    aggregateRating: {
-      "@type": "AggregateRating" as const,
-      ratingValue: ratingValue.toFixed(1),
-      reviewCount,
-      bestRating: 5,
-      worstRating: 1
-    },
-    review: reviews.map((item) => ({
-      "@type": "Review" as const,
-      author: {
-        "@type": "Person" as const,
-        name: item.name
-      },
-      datePublished: item.publishedAt,
-      reviewRating: {
-        "@type": "Rating" as const,
-        ratingValue: item.rating,
-        bestRating: 5,
-        worstRating: 1
-      },
-      reviewBody: item.description,
-      itemReviewed: {
-        "@id": organizationId
-      }
-    }))
-  };
-};
-
-export { buildReviewsSchema, formatReviewDate, reviews };
+export { formatReviewDate, reviews };
