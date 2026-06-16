@@ -12,26 +12,23 @@ const { question, open = false, class: className, ...rest } = Astro.props;
 ---
 
 <details
-  class={cn(
-    "group border-border min-w-0 border-b last:border-b-0",
-    className
-  )}
+  class={cn("group border-border min-w-0 border-b last:border-b-0", className)}
   data-slot="accordion-item"
   open={open || undefined}
   {...rest}
 >
   <summary
-    class="focus-visible:border-ring focus-visible:ring-ring/50 flex cursor-pointer list-none select-none items-center justify-between gap-3 px-4 py-3.5 text-left text-base font-medium transition-colors outline-none hover:text-primary focus-visible:ring-[3px] md:px-5 [&::-webkit-details-marker]:hidden"
+    class="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5 text-left text-base font-medium transition-colors outline-none select-none hover:text-primary focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 md:px-5 [&::-webkit-details-marker]:hidden"
   >
     <span class="min-w-0 flex-1">{question}</span>
     <ChevronDown
-      class="text-muted-foreground pointer-events-none size-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
+      class="pointer-events-none size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"
       aria-hidden="true"
     />
   </summary>
 
   <div
-    class="text-muted-foreground min-w-0 px-4 pb-4 text-sm leading-relaxed break-words md:px-5 md:pb-5"
+    class="min-w-0 px-4 pb-4 text-sm leading-relaxed break-words text-muted-foreground md:px-5 md:pb-5"
     data-slot="accordion-content"
   >
     <slot />

@@ -4,7 +4,6 @@ import { Accordion, AccordionItem } from "@/shared/ui/accordion";
 import { Card, CardContent } from "@/shared/ui/card";
 import { cn } from "@/shared/utils/cn";
 import { buildFaqSchema, faqItems } from "../config/faq";
-import { Section, SectionContent } from "./section";
 
 const midpoint = Math.ceil(faqItems.length / 2);
 const faqColumns = [faqItems.slice(0, midpoint), faqItems.slice(midpoint)];
@@ -14,13 +13,13 @@ const faqColumns = [faqItems.slice(0, midpoint), faqItems.slice(midpoint)];
 
 <Card size="sm" class="overflow-hidden">
   <CardContent class="px-0 py-0">
-    <div class="lg:grid lg:grid-cols-2 lg:divide-border lg:divide-x">
+    <div class="lg:grid lg:grid-cols-2 lg:divide-x lg:divide-border">
       {
         faqColumns.map((column, index) => (
           <Accordion
             class={cn(
               "min-w-0",
-              index > 0 && "border-border border-t lg:border-t-0"
+              index > 0 && "border-t border-border lg:border-t-0"
             )}
           >
             {column.map((item) => (

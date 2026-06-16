@@ -1,5 +1,13 @@
 import { Hono } from "hono";
-import { check, nonEmpty, maxLength, object, optional, pipe, string } from "valibot";
+import {
+  check,
+  nonEmpty,
+  maxLength,
+  object,
+  optional,
+  pipe,
+  string
+} from "valibot";
 import { vValidator } from "@hono/valibot-validator";
 import parsePhoneNumberFromString from "libphonenumber-js";
 import { checkIsValidPhone } from "../utils/phone";
@@ -32,15 +40,15 @@ app.post("", vValidator("json", callbackSchema), async (c) => {
       { success: false, message: "You have already sent recently" },
       429
     );
-  
-  const provider = new TelegramProvider()
+
+  const provider = new TelegramProvider();
   const payload: CallbackPayload = {
     name,
     phone: parsedPhone,
     metric: metric,
-    date: new Date(),
+    date: new Date()
   };
-  
+
   await provider.send(payload);
   return c.json({ success: true });
 });

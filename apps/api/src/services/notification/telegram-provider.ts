@@ -19,7 +19,7 @@ export class TelegramProvider implements NotificationProvider {
       "📲 Новая запись!\n",
       `Имя: ${name}`,
       `Номер: ${phone.number}`,
-       metric ? `Метрика: ${metric}` : null,
+      metric ? `Метрика: ${metric}` : null,
       `Дата: ${dateRu}`,
       `Время: ${timeRu}`
     ].filter((x): x is string => x !== null);

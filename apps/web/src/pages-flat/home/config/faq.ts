@@ -1,4 +1,4 @@
-import type { FAQPage, Question } from "schema-dts";
+import type { FAQPage, Question, WithContext } from "schema-dts";
 
 const faqItems = [
   {
@@ -46,7 +46,8 @@ const faqItems = [
   }
 ] as const;
 
-const buildFaqSchema = (): FAQPage => ({
+const buildFaqSchema = (): WithContext<FAQPage> => ({
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: faqItems.map(
     (item): Question => ({

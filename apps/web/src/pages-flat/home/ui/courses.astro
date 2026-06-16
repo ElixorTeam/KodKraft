@@ -16,7 +16,6 @@ import { Card, CardContent, CardDescription } from "@/shared/ui/card";
 ---
 
 <Carousel class="w-full">
-
   <div class="mt-10 flex gap-3 px-4 sm:px-0">
     <CarouselPrev class="static size-10">
       <PixelChevronIcon class="size-4 rotate-180" slot="icon" />
@@ -26,7 +25,7 @@ import { Card, CardContent, CardDescription } from "@/shared/ui/card";
     </CarouselNext>
   </div>
 
-  <CarouselContent class="mr-4 px-4 sm:mr-px sm:pl-px select-none">
+  <CarouselContent class="mr-4 px-4 select-none sm:mr-px sm:pl-px">
     {
       courses.map((item) => (
         <CarouselItem class="basis-52 py-1 md:basis-64 xl:basis-80">

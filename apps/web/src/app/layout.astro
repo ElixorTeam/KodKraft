@@ -117,8 +117,6 @@ const graph: Graph = {
     />
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
     <meta property="og:site_name" content={school.name}>
     <meta property="og:url" content={site}>
     <meta property="og:locale" content="ru_RU">
@@ -144,7 +142,7 @@ const graph: Graph = {
         )
     }
   </head>
-  <body>
+  <body class="pt-12 md:pt-16">
     <slot />
   </body>
 </html>

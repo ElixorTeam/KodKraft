@@ -2,7 +2,11 @@
 import SocialTelegramIcon from "@/shared/assets/socials/telegram.svg";
 import SocialVKIcon from "@/shared/assets/socials/vk.svg";
 import SocialMaxIcon from "@/shared/assets/socials/max.svg";
-import { contacts, formatAddress, formatPhone } from "@/pages-flat/home/config/contacts";
+import {
+  contacts,
+  formatAddress,
+  formatPhone
+} from "@/pages-flat/home/config/contacts";
 import { Button } from "@/shared/ui/button";
 ---
 
@@ -24,16 +28,16 @@ import { Button } from "@/shared/ui/button";
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-8">
       <div class="flex flex-col gap-4">
         <h3 class="text-2xl font-semibold">Контакты</h3>
-         <div class="space-y-0.5">
-            <p class="text-muted-foreground">Телефон</p>
-            <Button
-                href={contacts.phone.getURI()}
-                variant="link"
-                class="h-fit p-0 text-base whitespace-normal"
-            >
-              {formatPhone(contacts.phone)}
-            </Button>
-          </div>
+        <div class="space-y-0.5">
+          <p class="text-muted-foreground">Телефон</p>
+          <Button
+            href={contacts.phone.getURI()}
+            variant="link"
+            class="h-fit p-0 text-base whitespace-normal"
+          >
+            {formatPhone(contacts.phone)}
+          </Button>
+        </div>
       </div>
 
       <div class="flex flex-col gap-4">
@@ -61,36 +65,36 @@ import { Button } from "@/shared/ui/button";
 
       <div class="flex flex-col gap-4">
         <h3 class="text-2xl font-semibold">Социальные сети</h3>
-            <Button
-              href={contacts.vk}
-              variant="link"
-              class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SocialVKIcon class="size-6" aria-hidden="true" />
-              Вконтакте
-            </Button>
-            <Button
-              href={contacts.max}
-              variant="link"
-              class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SocialMaxIcon class="size-6" aria-hidden="true" />
-              Max (канал)
-            </Button>
-            <Button
-              href={contacts.telegram}
-              variant="link"
-              class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SocialTelegramIcon class="size-6" aria-hidden="true" />
-              Телеграм (канал)
-            </Button>
+        <Button
+          href={contacts.vk}
+          variant="link"
+          class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SocialVKIcon class="size-6" aria-hidden="true" />
+          Вконтакте
+        </Button>
+        <Button
+          href={contacts.max}
+          variant="link"
+          class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SocialMaxIcon class="size-6" aria-hidden="true" />
+          Max (канал)
+        </Button>
+        <Button
+          href={contacts.telegram}
+          variant="link"
+          class="h-fit w-fit p-0 text-base whitespace-normal has-[>svg]:px-0"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SocialTelegramIcon class="size-6" aria-hidden="true" />
+          Телеграм (канал)
+        </Button>
       </div>
     </div>
 

@@ -11,7 +11,7 @@ import { contacts, formatAddress, formatPhone } from "../config/contacts";
 >
   <div class="min-w-0 space-y-1 text-sm">
     <p>© 2018–2026 КодКрафт. Все права защищены</p>
-    <address class="not-italic text-muted-foreground">
+    <address class="text-muted-foreground not-italic">
       {formatAddress()} · {" "}
       <a href={contacts.phone.getURI()} class="underline underline-offset-4">
         {formatPhone(contacts.phone)}

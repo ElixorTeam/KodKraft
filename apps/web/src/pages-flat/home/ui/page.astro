@@ -29,7 +29,7 @@ import Ghost from "@/shared/assets/ghost.webp";
 
 <Header />
 
-<main class="relative container mx-auto size-full min-h-screen pt-12">
+<main class="relative container mx-auto size-full min-h-screen">
   <div class="animate-appear-zoom absolute -top-32 -z-10 w-full delay-1000">
     <div
       class="absolute left-1/2 h-64 w-[40%] -translate-x-1/2 scale-[2.5] rounded-[50%] bg-radial from-primary/75 from-10% to-primary/0 to-60% opacity-20 sm:h-128 dark:opacity-50"
@@ -42,14 +42,14 @@ import Ghost from "@/shared/assets/ghost.webp";
   </div>
 
   <section
-    class="my-20 animate-in duration-1000 blur-in fade-in md:my-32 md:slide-in-from-bottom-15"
+    class="my-20 animate-in duration-1000 fade-in md:my-32 md:slide-in-from-bottom-15"
   >
     <div
       class="relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-4 px-4 text-center sm:px-6 md:gap-8 lg:px-8"
     >
       <div class="space-y-4">
         <Badge variant="outline" class="bg-background">
-          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true"></div>
+          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true" />
           Набор на <span class="font-bold">новый учебный год</span> открыт
         </Badge>
         <h1 class="text-3xl font-semibold md:text-5xl lg:text-7xl">
@@ -58,7 +58,9 @@ import Ghost from "@/shared/assets/ghost.webp";
       </div>
 
       <p class="mx-auto max-w-xl text-muted-foreground md:text-xl">
-        Занятия в г. Владимир или онлайн —  мы не просто учим писать код, мы помогаем развить интерес к технологиям, которые уже стали частью повседневной жизни.
+        Занятия в г. Владимир или онлайн — мы не просто учим писать код, мы
+        помогаем развить интерес к технологиям, которые уже стали частью
+        повседневной жизни.
       </p>
 
       <DialogTrigger
@@ -76,24 +78,25 @@ import Ghost from "@/shared/assets/ghost.webp";
         src={Mario}
         alt=""
         aria-hidden="true"
-        class="absolute -bottom-24 left-8 hidden h-64 w-32 -rotate-10 object-contain lg:block select-none"
+        class="absolute -bottom-24 left-8 hidden h-64 w-32 -rotate-10 object-contain select-none lg:block"
       />
 
       <Image
         src={Ghost}
         alt=""
         aria-hidden="true"
-        class="absolute -top-24 right-4 hidden h-56 w-28 -scale-x-100 -rotate-10 object-contain lg:block select-none"
+        class="absolute -top-24 right-4 hidden h-56 w-28 -scale-x-100 -rotate-10 object-contain select-none lg:block"
       />
     </div>
   </section>
 
   <Section id="reviews" aria-labelledby="reviews-title">
     <SectionHeader variant="center">
-      <SectionTitle id="reviews-title">Отзывы учеников и родителей</SectionTitle>
+      <SectionTitle id="reviews-title">Отзывы учеников и родителей</SectionTitle
+      >
       <SectionDescription>
-        Реальные истории тех, кто уже учится у нас — от первых игр в Scratch
-        до подготовки к экзаменам.
+        Реальные истории тех, кто уже учится у нас — от первых игр в Scratch до
+        подготовки к экзаменам.
       </SectionDescription>
     </SectionHeader>
 
@@ -106,10 +109,12 @@ import Ghost from "@/shared/assets/ghost.webp";
     <SectionHeader>
       <div class="space-y-2">
         <Badge variant="outline">
-          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true"></div>
+          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true" />
           О нас
         </Badge>
-        <SectionTitle id="about-title">Обучаем программированию — с 2018 года</SectionTitle>
+        <SectionTitle id="about-title"
+          >Обучаем программированию — с 2018 года</SectionTitle
+        >
       </div>
 
       <SectionDescription class="space-y-4">
@@ -118,8 +123,10 @@ import Ghost from "@/shared/assets/ghost.webp";
           проекта: игры в Scratch или первой программы на Python.
         </p>
         <p>
-          Мы небольшая школа с живым темпом: замечаем, где ученик застрял, даём время разобраться и
-          поощряем проекты, которые хочется доработать уже после занятия. Так программирование становится увлечением, а не очередной нагрузкой
+          Мы небольшая школа с живым темпом: замечаем, где ученик застрял, даём
+          время разобраться и поощряем проекты, которые хочется доработать уже
+          после занятия. Так программирование становится увлечением, а не
+          очередной нагрузкой
         </p>
       </SectionDescription>
     </SectionHeader>
@@ -130,7 +137,11 @@ import Ghost from "@/shared/assets/ghost.webp";
       <SectionHeader>
         <div class="space-y-2">
           <Badge variant="outline">
-            <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true"></div>
+            <div
+              class="mr-1 size-1.5 rounded-full bg-primary"
+              aria-hidden="true"
+            >
+            </div>
             Курсы
           </Badge>
           <SectionTitle id="courses-title">Программы обучения</SectionTitle>
@@ -138,12 +149,15 @@ import Ghost from "@/shared/assets/ghost.webp";
 
         <SectionDescription class="space-y-4">
           <p>
-            Несколько направлений для разного возраста и уровня. Программы выстроены поэтапно: можно начать с нуля и постепенно
-            переходить на следующий курс, когда будете готовы.
+            Несколько направлений для разного возраста и уровня. Программы
+            выстроены поэтапно: можно начать с нуля и постепенно переходить на
+            следующий курс, когда будете готовы.
           </p>
           <p>
-            Занятия идут весь учебный год — от четырёх уроков в месяц, в спокойном темпе и с упором на практику. Формат на выбор: небольшая группа или индивидуально, в классе или
-            онлайн. Подберём расписание под ваш график.
+            Занятия идут весь учебный год — от четырёх уроков в месяц, в
+            спокойном темпе и с упором на практику. Формат на выбор: небольшая
+            группа или индивидуально, в классе или онлайн. Подберём расписание
+            под ваш график.
           </p>
         </SectionDescription>
       </SectionHeader>
@@ -163,7 +177,10 @@ import Ghost from "@/shared/assets/ghost.webp";
         </div>
 
         <div class="relative z-20 w-full max-w-xl space-y-4">
-          <h2 id="cta-title" class="text-2xl font-semibold text-white md:text-4xl">
+          <h2
+            id="cta-title"
+            class="text-2xl font-semibold text-white md:text-4xl"
+          >
             Попробуйте бесплатно
           </h2>
 
@@ -205,8 +222,8 @@ import Ghost from "@/shared/assets/ghost.webp";
       <SectionDescription>
         Живые кадры с занятий: ребята пишут код, тестируют свои проекты и
         обсуждают идеи с преподавателем. Здесь видно, как проходят уроки на
-        самом деле — без постановки, в спокойном темпе и с тем самым
-        интересом, ради которого дети возвращаются снова.
+        самом деле — без постановки, в спокойном темпе и с тем самым интересом,
+        ради которого дети возвращаются снова.
       </SectionDescription>
     </SectionHeader>
 
@@ -214,7 +231,6 @@ import Ghost from "@/shared/assets/ghost.webp";
       <Gallery />
     </SectionContent>
   </Section>
-
 
   <Section id="faq" aria-labelledby="faq-title">
     <SectionHeader variant="center">
@@ -257,8 +273,8 @@ import Ghost from "@/shared/assets/ghost.webp";
       </div>
 
       <SectionDescription>
-        Позвоните или напишите в соцсетях — расскажем о курсах, формате
-        занятий и запишем на бесплатный пробный урок, когда вам удобно.
+        Позвоните или напишите в соцсетях — расскажем о курсах, формате занятий
+        и запишем на бесплатный пробный урок, когда вам удобно.
       </SectionDescription>
     </SectionHeader>
 

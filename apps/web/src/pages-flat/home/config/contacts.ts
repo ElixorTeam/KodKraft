@@ -1,15 +1,11 @@
-import {
-  parsePhoneNumberWithError,
-  type PhoneNumber
-} from "libphonenumber-js";
+import { parsePhoneNumberWithError, type PhoneNumber } from "libphonenumber-js";
 
 function formatPhone(phone: PhoneNumber): string {
   return phone.formatNational().replace(/^8/, "+7");
 }
 
 const formatAddress = (): string =>
-    `г. ${contacts.address.locality}, ${contacts.address.streetAddress}, ${contacts.address.floor}`;
-
+  `г. ${contacts.address.locality}, ${contacts.address.streetAddress}, ${contacts.address.floor}`;
 
 const contacts = {
   telegram: "https://t.me/kodkraft33",

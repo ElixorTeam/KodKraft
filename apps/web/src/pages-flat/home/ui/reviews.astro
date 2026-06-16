@@ -21,18 +21,22 @@ import { Rating } from "@/shared/ui/rating";
           <CardHeader class="w-full overflow-hidden">
             <div class="flex w-full items-center gap-2 overflow-hidden">
               <div class="flex min-w-0 flex-1 items-center gap-2">
-                <div class="select-none flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary text-white  ">
+                <div class="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary text-white select-none">
                   {item.name.at(0)}
                 </div>
                 <div class="flex flex-col overflow-hidden">
                   <p class="truncate font-medium">{item.name}</p>
-                  <CardDescription>{formatReviewDate(item.publishedAt)}</CardDescription>
+                  <CardDescription>
+                    {formatReviewDate(item.publishedAt)}
+                  </CardDescription>
                 </div>
               </div>
               <Rating value={item.rating} />
             </div>
           </CardHeader>
-          <CardContent class="px-6 text-sm line-clamp-4">{item.description}</CardContent>
+          <CardContent class="line-clamp-4 px-6 text-sm">
+            {item.description}
+          </CardContent>
         </Card>
       </div>
     ))
