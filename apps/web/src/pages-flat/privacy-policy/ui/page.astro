@@ -3,6 +3,7 @@ import Header from "@/pages-flat/home/ui/header.astro";
 import Footer from "@/pages-flat/home/ui/footer.astro";
 import { contacts, formatPhone } from "@/pages-flat/home/config/contacts";
 import { Button } from "@/shared/ui/button";
+import ArrowLeftIcon from "@lucide/astro/icons/arrow-left";
 
 const siteUrl = import.meta.env.SITE;
 const updatedAt = "4 июня 2026 г.";
@@ -15,7 +16,8 @@ const updatedAt = "4 июня 2026 г.";
 >
   <div class="mx-auto max-w-3xl">
     <Button href="/" variant="link" class="mb-6 h-fit p-0 text-sm">
-      ← На главную
+      <ArrowLeftIcon />
+      На главную
     </Button>
 
     <h1 class="text-3xl font-semibold md:text-4xl">

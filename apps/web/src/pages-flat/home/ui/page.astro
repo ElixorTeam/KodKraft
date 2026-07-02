@@ -8,7 +8,6 @@ import Footer from "./footer.astro";
 import { CallbackDialog } from "@/widgets/callback-dialog";
 import Courses from "./courses.astro";
 import ContactUs from "./contact-us.astro";
-// import Teachers from "./teachers.astro";
 import { Badge } from "@/shared/ui/badge";
 import Gallery from "./gallery.astro";
 import Faq from "./faq.astro";
@@ -49,7 +48,8 @@ import Ghost from "@/shared/assets/ghost.webp";
     >
       <div class="space-y-4">
         <Badge variant="outline" class="bg-background">
-          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true" />
+          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true">
+          </div>
           Набор на <span class="font-bold">новый учебный год</span> открыт
         </Badge>
         <h1 class="text-3xl font-semibold md:text-5xl lg:text-7xl">
@@ -109,7 +109,8 @@ import Ghost from "@/shared/assets/ghost.webp";
     <SectionHeader>
       <div class="space-y-2">
         <Badge variant="outline">
-          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true" />
+          <div class="mr-1 size-1.5 rounded-full bg-primary" aria-hidden="true">
+          </div>
           О нас
         </Badge>
         <SectionTitle id="about-title"
@@ -246,24 +247,6 @@ import Ghost from "@/shared/assets/ghost.webp";
       <Faq />
     </SectionContent>
   </Section>
-
-  <!-- <Section>
-    <SectionHeader>
-      <div class="space-y-2">
-        <Badge variant="outline">Команда</Badge>
-        <SectionTitle>Наши преподаватели</SectionTitle>
-      </div>
-
-      <SectionDescription>
-        Наставники, которые не просто знают программирование, а умеют объяснять
-        его детям понятно, интересно и с поддержкой.
-      </SectionDescription>
-    </SectionHeader>
-
-    <SectionContent class="px-0 sm:-mb-12 lg:-mb-16">
-      <Teachers />
-    </SectionContent>
-  </Section> -->
 
   <Section id="contacts" aria-labelledby="contacts-title">
     <SectionHeader variant="center">

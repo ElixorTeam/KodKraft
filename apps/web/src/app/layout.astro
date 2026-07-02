@@ -5,7 +5,10 @@ import { Font } from "astro:assets";
 import { Schema } from "astro-seo-schema";
 import { contacts } from "@/pages-flat/home/config/contacts";
 import { buildCoursesOfferCatalog } from "@/pages-flat/home/config/courses";
-import { openingHoursSpecification, school } from "@/pages-flat/home/config/school";
+import {
+  openingHoursSpecification,
+  school
+} from "@/pages-flat/home/config/school";
 import type { EducationalOrganization, Graph, WebPage } from "schema-dts";
 import "./styles.css";
 
@@ -63,14 +66,10 @@ const education: EducationalOrganization = {
     longitude: 40.415219
   },
   openingHoursSpecification: [openingHoursSpecification],
-  sameAs: [
-    contacts.vk,
-    contacts.telegram,
-    contacts.max
-  ],
+  sameAs: [contacts.vk, contacts.telegram, contacts.max],
   image: {
     "@type": "ImageObject",
-    url: `${site}/og-image.jpg`,
+    url: `${site}/og-image.jpg`
   },
   hasOfferCatalog: buildCoursesOfferCatalog(organizationId)
 };
@@ -82,7 +81,7 @@ const webpage: WebPage = {
   url: site,
   image: {
     "@type": "ImageObject",
-    url: `${site}/og-image.jpg`,
+    url: `${site}/og-image.jpg`
   },
   inLanguage: "ru",
   isPartOf: {
@@ -104,42 +103,37 @@ const graph: Graph = {
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-
-    <Seo
-        title={title}
-        description={description}
-        keywords={keywords}
-        icon="/favicon.ico"
-        robots="index, follow"
-        colorScheme="light"
-        themeColor="#ff4500"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
     />
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content={school.name}>
-    <meta property="og:url" content={site}>
-    <meta property="og:locale" content="ru_RU">
+    <Seo
+      title={title}
+      description={description}
+      keywords={keywords}
+      icon="/favicon.ico"
+      robots="index, follow"
+      colorScheme="light"
+      themeColor="#f40"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={school.name} />
+    <meta property="og:url" content={site} />
+    <meta property="og:locale" content="ru_RU" />
     <meta property="og:image" content={`${site}/og-image.jpg`} />
     <meta property="og:image:secure_url" content={`${site}/og-image.jpg`} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Font cssVariable="--font-wix" preload />
 
-
-    <!-- JSON-LD -->
     <Schema item={graph} />
 
     {
-        import.meta.env.PROD && (
-            <!-- Яндекс.Метрика -->
-            <YandexMetrika
-                counterId={109849817}
-                ecommerce="dataLayer"
-                webvisor
-                lazy
-            />
-        )
+      import.meta.env.PROD && (
+        <YandexMetrika counterId={109849817} ecommerce="dataLayer" webvisor />
+      )
     }
   </head>
   <body class="pt-12 md:pt-16">

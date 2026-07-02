@@ -101,8 +101,8 @@
 
 @layer base {
   ::selection {
-      @apply bg-primary/70 text-primary-foreground;
-    }
+    @apply bg-primary/70 text-primary-foreground;
+  }
 
   * {
     @apply border-border outline-ring/50;
