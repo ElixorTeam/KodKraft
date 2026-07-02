@@ -17,10 +17,6 @@ services:
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
-      args:
-        TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
-        TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
-        FRONTEND_URL: ${FRONTEND_URL}
     env_file:
       - .env
     ports:
