@@ -37,7 +37,7 @@ import KodKraftMiniLogo from "@/shared/assets/mini-logo.svg";
         <div class="w-full space-y-3">
           <DialogTitle class="font-medium sm:text-3xl">
             Остались вопросы?<br />
-            <span class="font-semibold">Оставьте заявку</span>
+            <div class="mt-1.5 font-semibold">Оставьте заявку</div>
           </DialogTitle>
 
           <p class="text-sm text-muted-foreground md:pb-4">
@@ -51,8 +51,9 @@ import KodKraftMiniLogo from "@/shared/assets/mini-logo.svg";
     </div>
   </DialogContent>
 </Dialog>
+
 <Dialog id="success-dialog">
-  <DialogContent class="text-foreground">
+  <DialogContent class="max-w-md text-foreground">
     <div class="flex flex-col gap-3">
       <div class="text-center text-2xl font-medium">Заявка отправлена!</div>
       <div class="text-center text-sm text-muted-foreground">

@@ -11,13 +11,13 @@
   },
   "devDependencies": {
     "@types/bun": "1.3.14",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "dependencies": {
     "@hono/valibot-validator": "0.6.1",
     "grammy": "1.44.0",
-    "hono": "4.12.27",
-    "libphonenumber-js": "1.13.7",
+    "hono": "4.12.29",
+    "libphonenumber-js": "1.13.8",
     "valibot": "1.4.2"
   }
 }
