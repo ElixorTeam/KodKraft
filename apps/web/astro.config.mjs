@@ -5,13 +5,13 @@ import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import { loadEnv } from "vite";
 
-const env = loadEnv(process.env.NODE_ENV ?? "production", process.cwd(), "");
+const { FRONTEND_URL } = { ...process.env, ...loadEnv(process.env.NODE_ENV ?? "production", process.cwd(), "") };
 
 // https://astro.build/config
 export default defineConfig({
   output: "static",
   integrations: [svelte(), sitemap()],
-  site: env.FRONTEND_URL,
+  site: FRONTEND_URL,
 
   vite: {
     plugins: [tailwindcss()]
