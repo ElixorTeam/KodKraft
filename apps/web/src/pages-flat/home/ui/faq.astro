@@ -11,17 +11,12 @@ const faqColumns = [faqItems.slice(0, midpoint), faqItems.slice(midpoint)];
 
 <Schema item={buildFaqSchema()} />
 
-<Card size="sm" class="overflow-hidden">
-  <CardContent class="px-0 py-0">
-    <div class="lg:grid lg:grid-cols-2 lg:divide-x lg:divide-border">
+<Card size="sm" class="overflow-hidden p-0">
+  <CardContent class="group-data-[size=sm]/card:px-0">
+    <div class="divide-y lg:grid lg:grid-cols-2 lg:divide-x lg:divide-y-0">
       {
         faqColumns.map((column, index) => (
-          <Accordion
-            class={cn(
-              "min-w-0",
-              index > 0 && "border-t border-border lg:border-t-0"
-            )}
-          >
+          <Accordion class={cn("min-w-0", index > 0 && "")}>
             {column.map((item) => (
               <AccordionItem question={item.question}>
                 <p>{item.answer}</p>

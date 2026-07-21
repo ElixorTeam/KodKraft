@@ -25,7 +25,7 @@
     },
     validators: { onSubmit: formSchema },
     onSubmit: async ({ value }) => {
-      await fetch(`${API_URL}/api/callback`, {
+      const response = await fetch(`${API_URL}/api/callback`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -33,17 +33,22 @@
         body: JSON.stringify({ metric, ...value })
       });
 
-      const callbackDialog = document.querySelector("#callback-dialog");
-      const successDialog = document.querySelector("#success-dialog");
-
       // Blur inputs so mobile keyboards release scroll lock before closing
-      if (document.activeElement instanceof HTMLElement) {
+      if (document.activeElement instanceof HTMLElement)
         document.activeElement.blur();
-      }
 
+      const callbackDialog = document.querySelector("#callback-dialog");
       callbackDialog?.dispatchEvent(new Event("dialog:close"));
       await waitForDialogClosed(callbackDialog);
-      successDialog?.dispatchEvent(new Event("dialog:open"));
+
+      if (!response.ok) {
+        const errorDialog = document.querySelector("#error-dialog");
+        errorDialog?.dispatchEvent(new Event("dialog:open"));
+      } else {
+        const successDialog = document.querySelector("#success-dialog");
+        successDialog?.dispatchEvent(new Event("dialog:open"));
+      }
+
       form.reset();
     }
   }));

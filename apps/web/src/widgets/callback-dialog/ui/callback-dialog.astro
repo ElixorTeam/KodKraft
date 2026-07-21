@@ -1,9 +1,17 @@
 ---
-import { Dialog, DialogContent, DialogTitle } from "@/shared/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogClose
+} from "@/shared/ui/dialog";
 import AbstractBackground from "@/shared/assets/abstract-bg.webp";
 import CallbackForm from "./callback-form.svelte";
 import { Image } from "astro:assets";
 import KodKraftMiniLogo from "@/shared/assets/mini-logo.svg";
+import ShieldAlertIcon from "@lucide/astro/icons/shield-alert";
+import PartyPopperIcon from "@lucide/astro/icons/party-popper";
+import { Button } from "@/shared/ui/button";
 ---
 
 <Dialog id="callback-dialog">
@@ -53,12 +61,47 @@ import KodKraftMiniLogo from "@/shared/assets/mini-logo.svg";
 </Dialog>
 
 <Dialog id="success-dialog">
-  <DialogContent class="max-w-md text-foreground">
-    <div class="flex flex-col gap-3">
-      <div class="text-center text-2xl font-medium">Заявка отправлена!</div>
-      <div class="text-center text-sm text-muted-foreground">
+  <DialogContent class="max-w-sm text-foreground">
+    <div class="flex flex-col items-center gap-3">
+      <div
+        class="flex size-11 items-center justify-center rounded-md bg-primary text-primary-foreground"
+      >
+        <PartyPopperIcon class="size-7" />
+      </div>
+
+      <div class="text-center text-xl font-semibold">Заявка отправлена!</div>
+
+      <div class="text-center text-muted-foreground">
+        Спасибо за оформление заявки. <br />
         Мы свяжемся с вами в ближайшее время.
       </div>
+
+      <DialogClose asChild>
+        <Button class="mt-4 w-full max-w-3xs"> Понятно </Button>
+      </DialogClose>
+    </div>
+  </DialogContent>
+</Dialog>
+
+<Dialog id="error-dialog">
+  <DialogContent class="max-w-sm text-foreground">
+    <div class="flex flex-col items-center gap-3">
+      <div
+        class="flex size-11 items-center justify-center rounded-md bg-primary text-primary-foreground"
+      >
+        <ShieldAlertIcon class="size-7" />
+      </div>
+
+      <div class="text-center text-xl font-semibold">Ошибка отправки</div>
+
+      <div class="text-center text-muted-foreground">
+        Не удалось отправить форму.<br />
+        Повторите попытку позже.
+      </div>
+
+      <DialogClose asChild>
+        <Button class="mt-4 w-full max-w-3xs"> Понятно </Button>
+      </DialogClose>
     </div>
   </DialogContent>
 </Dialog>
