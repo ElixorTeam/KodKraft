@@ -9,7 +9,7 @@ const courses = [
     imageSrc: CourseImage2,
     name: "Scratch",
     group: "7–10 лет",
-    price: 5000,
+    price: 5500,
     metric: "course-scratch",
     description:
       "Визуальное программирование: собираем игры и анимации из блоков. Ребёнок понимает логику, циклы и условия — без страха перед «настоящим» кодом."
@@ -18,7 +18,7 @@ const courses = [
     imageSrc: CourseImage1,
     name: "Python",
     group: "с 11 лет",
-    price: 5000,
+    price: 5500,
     metric: "course-python",
     description:
       "Первый язык: пишем программы, скрипты и простые приложения. Учимся думать как разработчик и решать задачи по шагам."
@@ -27,7 +27,7 @@ const courses = [
     imageSrc: CourseImage4,
     name: "Pygame",
     group: "с 14 лет",
-    price: 5000,
+    price: 5500,
     metric: "course-pygame",
     description:
       "Делаем 2D-игры на Python: персонажи, столкновения, счёт. Закрепляем основы языка через то, что детям действительно интересно."
@@ -36,7 +36,7 @@ const courses = [
     imageSrc: CourseImage5,
     name: "Godot",
     group: "с 14 лет",
-    price: 5000,
+    price: 5500,
     metric: "course-godot",
     description:
       "Собираем игры на движке Godot: сцены, скрипты, механики. Шаг к профессиональным инструментам геймдева."
@@ -45,7 +45,7 @@ const courses = [
     imageSrc: CourseImage3,
     name: "C#",
     group: "с 15 лет",
-    price: 5000,
+    price: 5500,
     metric: "course-csharp",
     description:
       "Основы C# и структурированный код. Небольшие проекты и привычка писать аккуратно — хорошая база для дальнейшего обучения."
